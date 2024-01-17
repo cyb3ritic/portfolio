@@ -31,9 +31,13 @@
   visibility: visible;
   opacity: 1;
 }
-.glow:hover {
-  background-color:var(--hacking-green);
+
+
+.user-name>h1 {
+  display: inline;
+  font-size: 2rem;
 }
+
 
 @media (max-width: 991.98px) {
   .sticky-lg-top.vh-100 {
