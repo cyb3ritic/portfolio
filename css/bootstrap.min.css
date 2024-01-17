@@ -6984,7 +6984,9 @@ fieldset:disabled .btn {
 }
 
 .border-secondary {
-    border-color: #314355 !important
+    margin-left:10px;
+    /* padding-left:50px; */
+    border-color: #6f42c1 !important
 }
 
 .border-success {
