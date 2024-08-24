@@ -113,6 +113,28 @@
   animation: action 1s infinite alternate;
 }
 
+#form-message {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--hacking-green);
+    opacity: 0
+ 
+}
+
+#form-message.success{
+    color: var(--hacking-green); /* Success text color */
+}
+
+#form-message.error {
+    color: red; /* Error text color */
+}
+
+
 @-webkit-keyframes action {
   0% {
     transform: translateY(0);

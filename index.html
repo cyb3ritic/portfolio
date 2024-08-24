@@ -9,12 +9,12 @@
     <meta content="Portfolio" name="description">
 
     <!-- Favicon -->
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/img/favicon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/img/favicon/site.webmanifest">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,6 +35,11 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <!-- <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script> -->
+
 </head>
 
 <body>
@@ -55,7 +60,7 @@
         <div class="row g-5">
             <div class="col-lg-4 sticky-lg-top vh-100">
                 <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
-                    <img class="w-100 img-fluid mb-4" src="img/testimonial-3.jpeg" alt="Image">
+                    <img class="w-100 img-fluid mb-4" src="img/avatar.png" alt="Image">
                     <div class="user-name text-primary">
                         <h1>(<h1 style="color:red">Samip A. Shah</h1><h1>)-[<h1 class="text-hacking-green">~</h1><h1>]</h1>
                     </div>
@@ -76,8 +81,8 @@
                             target="new"><i class="fab fa-instagram"></i></a>
                     </div>
                     <div class="d-flex align-items-end justify-content-between border-top">
-                        <a href="resume/cv.html" target="new" class="btn w-50 border-end">View CV</a>
-                        <a href="#contact" class="btn w-50 btn-scroll">Contact Me
+                        <a href="resume/cv.html" target="new" class="btn w-50 border-end"><strong>View CV</strong></a>
+                        <a href="https://blogs.samipshah.com.np" target="new" class="btn w-50 btn-scroll"><strong>Checkout My Blog</strong>
 
 
                         </a>
@@ -88,9 +93,15 @@
                 <!-- About Start -->
                 <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
                     <h1 class="title pb-3 mb-5">About Me</h1>
-                    <p>I'm a B.Tech Computer Science and Engineering, 2<sup><small>nd</small></sup> year student at
-                        Amrita school of Engineering, Bangalore.
-                        I'm an aspiring Ethical Hacker and a Penetration Testing enthusiast.</p>
+                    <p>Hey there! I’m <strong>cyb3ritic</strong>, a cyber sleuth in training, currently decoding my B.Tech in Computer Science and Engineering at Amrita Vishwa Vidyapeetham, Bangalore. By day, I’m a student; by night, I’m hacking my way through CTFs as part of India’s top team, bi0s. Since joining bi0sblr in 2023, I’ve cracked over 20 CTFs, specializing in web exploitation.</p>
+                        
+                    <p>I’ve got a terminal addiction to Linux and handle tools like Nmap, Metasploit, and Burp Suite like a pro. When I’m not scripting in Python or Bash, I’m breaking the web (ethically, of course) with HTML, CSS, and JavaScript.</p>
+                    
+                    <p>I share my hacking adventures on <a class="text-primary" href="https://blogs.samipshah.com.np" target="_blank">blogs.samipshah.com.np</a>. Beyond CTFs, I’m into bug bounty hunting.</p>
+                    
+                    <p>Always up for a challenge, I’m eager to patch my knowledge gaps and contribute to the cybersecurity world—because who doesn’t love cracking a tough nut?</p>
+                    
+                    
                     <div class="row mb-4">
                         <div class="col-sm-6 py-1">
                             <span class="fw-medium text-primary">Name:</span> Samip Aanand Shah
@@ -105,10 +116,7 @@
                             <span class="fw-medium text-primary">Experience:</span> Member of bi0sblr since May 2023
                         </div>
                         <div class="col-sm-6 py-1">
-                            <span class="fw-medium text-primary">Phone:</span> XXXXXXXXXX
-                        </div>
-                        <div class="col-sm-6 py-1">
-                            <span class="fw-medium text-primary">Email:</span> test@mail.com
+                            <span class="fw-medium text-primary">Email:</span> cyb3ritic@gmail.com
                         </div>
                         <div class="col-sm-6 py-1">
                             <span class="fw-medium text-primary">Address:</span> Mathura Block, Amrita School of
@@ -121,28 +129,28 @@
                     <div class="row g-4">
                         <div class="col-md-4 col-lg-6 col-xl-4">
                             <div class="d-flex bg-secondary border-2 p-4">
-                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">6</h1>
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
                                 <div class="ps-3">
-                                    <p class="mb-0">Months of</p>
-                                    <h5 class="mb-0">Experience</h5>
+                                    <p class="mb-0">CTFs</p>
+                                    <h5 class="mb-0">Challenges Tackled</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-lg-6 col-xl-4">
                             <div class="d-flex bg-secondary border-2 p-4">
-                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">4</h1>
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">2</h1>
                                 <div class="ps-3">
-                                    <p class="mb-0">Happy</p>
-                                    <h5 class="mb-0">Clients</h5>
+                                    <p class="mb-0">Years of</p>
+                                    <h5 class="mb-0">Cyber Sleuthing</h5>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4 col-lg-6 col-xl-4">
                             <div class="d-flex bg-secondary border-2 p-4">
-                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">5</h1>
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">999</h1>
                                 <div class="ps-3">
-                                    <p class="mb-0">Complete</p>
-                                    <h5 class="mb-0">Projects</h5>
+                                    <p class="mb-0">Passion for</p>
+                                    <h5 class="mb-0">Ethical hacking</h5>
                                 </div>
                             </div>
                         </div>
@@ -158,30 +166,30 @@
                             <div class="skill mb-4">
                                 <div class="d-flex justify-content-between">
                                     <p class="mb-2">Web Exploitation</p>
-                                    <p class="mb-2">20%</p>
+                                    <p class="mb-2">65%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="25"
+                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="65"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="skill mb-4">
                                 <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Binary Exploitation</p>
-                                    <p class="mb-2">5%</p>
+                                    <p class="mb-2">Python & Bash</p>
+                                    <p class="mb-2">75%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="5"
+                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="55"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="skill mb-4">
                                 <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Reverse Engineering</p>
-                                    <p class="mb-2">4%</p>
+                                    <p class="mb-2">Networking & OS</p>
+                                    <p class="mb-2">70%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="4"
+                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
@@ -189,31 +197,31 @@
                         <div class="col-sm-6">
                             <div class="skill mb-4">
                                 <div class="d-flex justify-content-between">
-                                    <p class="mb-2">pwn</p>
-                                    <p class="mb-2">4%</p>
+                                    <p class="mb-2">Pentesting Tools</p>
+                                    <p class="mb-2">80%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="4"
+                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="skill mb-4">
                                 <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Python</p>
-                                    <p class="mb-2">44%</p>
+                                    <p class="mb-2">Detecting Cyber Shenanigans</p>
+                                    <p class="mb-2">90%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="44"
+                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="90"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
                             <div class="skill mb-4">
                                 <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Cryptography</p>
-                                    <p class="mb-2">7%</p>
+                                    <p class="mb-2">HTML, CSS & JavaScript</p>
+                                    <p class="mb-2">65%</p>
                                 </div>
                                 <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="7"
+                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="65"
                                         aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                             </div>
@@ -229,49 +237,47 @@
                         <div class="position-relative mb-4">
                             <span class="bi bi-arrow-right fs-4 text-hacking-green position-absolute"
                                 style="top: -5px; left: -50px;"></span>
-                            <h5 class="mb-1">Pursuing B.Tech Degree</h5>
+                            <h5 class="mb-1">Currently Hacking My Way Through B.Tech</h5>
                             <p class="mb-2">Amrita School of Engineering | <small>since 2022</small></p>
-                            <p>I'm currently studying in Amrita School of Engineering. I'm a B.tech student in Computer
-                                Science and Engineering branch. I've Completed my 1st year with 9.35 CGPA</p>
+                            <p>I'm on a mission at Amrita School of Engineering, where I'm diving deep into the world of Computer Science and Engineering. First and second year conquered with a 9.2 CGPA—no bugs in sight!</p>
                         </div>
                         <div class="position-relative mb-4">
                             <span class="bi bi-arrow-right fs-4 text-hacking-green position-absolute"
                                 style="top: -5px; left: -50px;"></span>
-                            <h5 class="mb-1">Ethical Hacking Essentials (EHE)</h5>
-                            <p class="mb-2">EC Council | <small>5<sup>th</sup> April 2023
-                                </small></p>
-                            <p>I've completed Ethical Hacking Essensials(EHE) course from <i>EC council</i> on 05 April
-                                2023</p>
+                            <h5 class="mb-1">Certified Ethical Hacking Enthusiast (EHE)</h5>
+                            <p class="mb-2">EC Council | <small>5<sup>th</sup> April 2023</small></p>
+                            <p>Successfully bypassed the firewalls and earned my Ethical Hacking Essentials (EHE) certificate from EC Council. Date of certification: 05 April 2023. Threat level: Green.</p>
                         </div>
                         <div class="position-relative mb-4">
                             <span class="bi bi-arrow-right fs-4 text-hacking-green position-absolute"
                                 style="top: -5px; left: -50px;"></span>
                             <h5 class="mb-1">Cybersecurity Virtual Experience Program</h5>
                             <p class="mb-2">Forage | <small>5<sup>th</sup> August 2023</small></p>
-                            <p>I've attended a Cyberecurity Virtual Experience Program of <i>Master Card</i> done in
-                                collaboration with <i>Forage</i>.</p>
+                            <p>I infiltrated the Cybersecurity Virtual Experience Program hosted by MasterCard and Forage, gaining new exploits to add to my toolkit. Date: 05 August 2023. Mission accomplished.</p>
                         </div>
                     </div>
                 </section>
                 <!-- Qualifications and Achievements End -->
 
-                <!-- Expericence Start -->
+
+                <!-- Experience Start -->
                 <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="title pb-3 mb-5">Expericence</h1>
+                    <h1 class="title pb-3 mb-5">Experience</h1>
                     <div class="border-start border-3 border-hacking-green pt-2 ps-5">
                         <div class="position-relative mb-4">
                             <span class="bi bi-arrow-right fs-4 text-hacking-green position-absolute"
                                 style="top: -5px; left: -50px;"></span>
-                            <h5 class="mb-1">Web Exploitation</h5>
+                            <h5 class="mb-1">Web Exploitation & Pentesting Specialist</h5>
                             <p class="mb-2">bi0s blr | <small>since May 2023</small></p>
-                            <p>Got selected into bi0blr team by securing 2<sup>nd</sup> position in bi0s CTF. <br>
-                                Currently learning and working as a member in web exploitation domain.</p>
+                            <p>I hacked my way into bi0s blr by securing 2<sup>nd</sup> place in the bi0s CTF, earning my spot on both the web exploitation and pentesting teams. <br>
+                                Whether it's unraveling the web's mysteries or testing the limits of security systems, I'm always on the front lines, turning vulnerabilities into opportunities to level up my hacking game.</p>
                         </div>
                     </div>
                 </section>
-                <!-- Expericence End -->
+                <!-- Experience End -->
 
-                <!-- Subscribe Start -->
+
+               <!-- Subscribe Start -->
                 <section class="wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-secondary text-center p-5">
                         <h1 class="text-hacking-green font-weight-bold">Subscribe My Newsletter</h1>
@@ -286,45 +292,43 @@
                 </section>
                 <!-- Subscribe End -->
 
+
                 <!-- Services Start -->
                 <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="title pb-3 mb-5">Services</h1>
+                    <h1 class="title pb-3 mb-5">What I Bring to the Hack Table</h1>
                     <div class="row g-4">
                         <div class="col-md-6">
                             <div class="service-item">
                                 <i class="fa fa-2x fa-bug mx-auto mb-4"></i>
-                                <h5 class="mb-2">Bug Bounty Hunting</h5>
-                                <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet
-                                    lorem lorem lorem est amet labore</p>
+                                <h5 class="mb-2">Bug Bounty Blitz</h5>
+                                <p class="mb-0">Hunting down vulnerabilities in web apps like a detective on a mission, and making the internet a safer place—one bug at a time.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="service-item">
                                 <i class="fas fa-2x fa-globe service-icon mx-auto mb-4"></i>
-                                <h5 class="mb-2">Web Application Analysis</h5>
-                                <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet
-                                    lorem lorem lorem est amet labore</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service-item">
-                                <i class="fas fa-2x fa-database mx-auto mb-4"></i>
-                                <h5 class="mb-2">Database Assesment</h5>
-                                <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet
-                                    lorem lorem lorem est amet labore</p>
+                                <h5 class="mb-2">Web Application Wizardry</h5>
+                                <p class="mb-0">Analyzing and exploiting web apps with the finesse of a master hacker, uncovering hidden flaws and strengthening defenses.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="service-item">
                                 <i class="fas fa-2x fa-fingerprint mx-auto mb-4"></i>
-                                <h5 class="mb-2">Penetration Testing</h5>
-                                <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet
-                                    lorem lorem lorem est amet labore</p>
+                                <h5 class="mb-2">Pentest Power</h5>
+                                <p class="mb-0">Conducting penetration tests to reveal vulnerabilities and fortify systems, ensuring your network is ironclad against attacks.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <i class="fas fa-2x fa-lock mx-auto mb-4"></i>
+                                <h5 class="mb-2">Security Solutions</h5>
+                                <p class="mb-0">Crafting custom security solutions tailored to your needs, from firewalls to encryption, making sure your data stays safe and sound.</p>
                             </div>
                         </div>
                     </div>
                 </section>
                 <!-- Services End -->
+
 
                 <!-- Portfolio Start -->
                 <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
@@ -391,7 +395,7 @@
                 <!-- Portfolio End -->
 
                 <!-- Testimonial Start -->
-                <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                <!-- <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
                     <h1 class="title pb-3 mb-5">Testimonial</h1>
                     <div class="owl-carousel testimonial-carousel">
                         <div class="text-left">
@@ -439,7 +443,7 @@
                                 dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet
                                 eirmod eos, labore diam clita</p>
                             <div class="d-flex align-items-center">
-                                <!--                                     <img class="img-fluid" src="#" style="width: 60px; height: 60px;"> -->
+                                <img class="img-fluid" src="#" style="width: 60px; height: 60px;">
                                 <div class="ps-3">
                                     <p class="text-primary fs-5 mb-1">Cyb3ritic</p>
                                     <i>Ethical Hacker</i>
@@ -447,40 +451,35 @@
                             </div>
                         </div>
                     </div>
-                </section>
+                </section> -->
                 <!-- Testimonial End -->
 
                 <!-- Contact Start -->
                 <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
                     <h1 class="title pb-3 mb-5">Contact Me</h1>
-                    <form>
+                    <form id="contact-form" onsubmit="sendEmail(event)">
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-1 bg-secondary" id="name"
-                                        placeholder="Your Name">
+                                    <input type="text" class="form-control border-1 bg-secondary" id="name" placeholder="Your Name" >
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control border-1 bg-secondary" id="email"
-                                        placeholder="Your Email">
+                                    <input type="text" class="form-control border-1 bg-secondary" id="email" placeholder="Your Email" >
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-1 bg-secondary" id="subject"
-                                        placeholder="Subject">
+                                    <input type="text" class="form-control border-1 bg-secondary" id="subject" placeholder="Subject" >
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control border-1 bg-secondary"
-                                        placeholder="Leave a message here" id="message"
-                                        style="height: 200px"></textarea>
+                                    <textarea class="form-control border-1 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px" ></textarea>
                                     <label for="message">Message</label>
                                 </div>
                             </div>
@@ -537,12 +536,15 @@
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
     <script src="lib/lightbox/js/lightbox.min.js"></script>
 
-    <!-- Contact Javascript File -->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <!-- Include the mail.js script -->
+    <script src="js/mail/mail.js"></script>
+
+    <!-- Include the subscribe.js script -->
+    <!-- <script src="js/subscribe/subscribe.js"></script> -->
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
 </body>
 
 </html>
