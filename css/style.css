@@ -259,3 +259,10 @@
 .testimonial-carousel .owl-dot.active {
   background: var(--hacking-green);
 }
+
+.certificates{
+  width: 100%;
+  height:300px;
+  object-fit:cover;
+  /* border-radius: 5px; */
+}
