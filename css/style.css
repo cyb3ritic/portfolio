@@ -265,11 +265,4 @@
   height:42dvh;
 }
 
-@media (max-width: 1200px) {
-  .certificates {
-    width:100%;
-    height: 30dvh;
-  }
-}
-
   
