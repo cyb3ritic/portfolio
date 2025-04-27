@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Secure Comment Submission Portal</title>
+
+  <!-- Strong Content Security Policy -->
+  <meta http-equiv="Content-Security-Policy" 
+        content="default-src 'self'; script-src 'self'; style-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="container" role="main" aria-labelledby="main-title">
+    <section class="card" aria-label="Secure Comment Form">
+      <h1 id="main-title">🔒 Secure Comment Portal</h1>
+      <p class="subtitle">Your safety is our top priority. Submit your thoughts securely below:</p>
+
+      <form id="commentForm" novalidate>
+        <label for="comment" class="sr-only">Enter your comment:</label>
+        <textarea id="comment" name="comment" required placeholder="Your secure comment..." aria-required="true"></textarea>
+        <button type="submit" aria-label="Submit Comment">Submit</button>
+      </form>
+    </section>
+
+    <section id="resultCard" class="card hidden" aria-live="polite" aria-atomic="true">
+      <h2>📝 Submitted Comment:</h2>
+      <div id="output" class="output"></div>
+    </section>
+
+    <div id="toast" class="toast" role="alert" aria-live="assertive"></div>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
