@@ -1,0 +1,625 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Hack';
+  src: url('https://fonts.cdnfonts.com/css/hack');
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    /* Dark theme by default for the cyberpunk look */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 143 100% 50%; /* Neon green */
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 199 86% 49%; /* Electric blue */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 273 91% 65%; /* Purple */
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    
+    --radius: 0.25rem;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 143 100% 50%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light {
+    --background: 0 0% 99%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 143 100% 38%; /* neon green */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 199 100% 45%; /* electric blue */
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 273 91% 65%; /* purple */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5.9% 80%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 60%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 10% 3.9%;
+    --sidebar-primary: 143 100% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 10% 3.9%;
+    --sidebar-border: 240 5.9% 80%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .light body {
+    color: #181a1b !important;
+    background: #fafbfc !important;
+  }
+
+  .light section {
+    background: rgba(255,255,255,0.97) !important;
+    color: #181a1b !important;
+    border-top: 1px solid #b2f5ea !important;
+    border-bottom: 1px solid #b2f5ea !important;
+    backdrop-filter: blur(6px);
+  }
+
+  .light .cyber-card {
+    background: #fff !important;
+    color: #181a1b !important;
+    border: 1.5px solid #00ff41 !important;
+    box-shadow: 0 2px 12px 0 rgba(30, 174, 219, 0.07);
+  }
+  .light .cyber-card:hover {
+    background: #f3fff7 !important;
+    box-shadow: 0 0 18px 2px #00ff4133;
+    transform: translateY(-2px) scale(1.01);
+  }
+
+  .light .cyber-text-gradient {
+    background-image: linear-gradient(90deg, #00ff41, #1eaedb, #8B5CF6);
+    background-clip: text;
+    color: transparent !important;
+  }
+
+  .light .glow::after {
+    box-shadow: 0 0 15px 2px #00ff41;
+  }
+
+  .light .digital-interference::before {
+    background-color: rgba(30, 174, 219, 0.25);
+  }
+
+  .light .matrix-rain {
+    opacity: 0.7;
+  }
+
+  .light .text-muted-foreground {
+    color: #4b5563 !important;
+  }
+
+  .light .border-gray-700,
+  .light .border-cyber-dark {
+    border-color: #b2f5ea !important;
+  }
+
+  .light .bg-cyber-dark\/50 {
+    background-color: rgba(26, 31, 44, 0.08) !important;
+  }
+
+  .light .bg-cyber-black\/50 {
+    background-color: rgba(13, 13, 13, 0.04) !important;
+  }
+
+  .light .bg-cyber-dark {
+    background-color: #f3f4f6 !important;
+  }
+
+  .light .text-cyber-green {
+    color: #00ff41 !important;
+    text-shadow: 0 0 6px #00ff41cc;
+  }
+  .light .text-cyber-blue {
+    color: #1eaedb !important;
+    text-shadow: 0 0 6px #1eaedbcc;
+  }
+  .light .text-cyber-purple {
+    color: #8B5CF6 !important;
+    text-shadow: 0 0 6px #8B5CF6cc;
+  }
+
+  .light a {
+    color: #00ff41 !important;
+    text-shadow: 0 0 4px #00ff41aa;
+    font-weight: 600;
+  }
+  .light a:hover {
+    color: #1eaedb !important;
+    text-shadow: 0 0 6px #1eaedbcc;
+  }
+
+  .light code, .light pre {
+    background: #f3f4f6 !important;
+    color: #181a1b !important;
+  }
+
+  .light .sticky, .light .fixed {
+    box-shadow: 0 2px 8px 0 rgba(30, 174, 219, 0.09);
+    background: #fff !important;
+  }
+
+  /* Navbar/sidebar hacker look */
+  .light nav,
+  .light .navbar,
+  .light .sidebar {
+    background: #fff !important;
+    color: #181a1b !important;
+    border-bottom: 2px solid #00ff41 !important;
+    box-shadow: 0 2px 16px 0 #00ff4122;
+  }
+  .light nav a,
+  .light .navbar a,
+  .light .sidebar a {
+    color: #181a1b !important;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: color 0.2s, text-shadow 0.2s;
+  }
+  .light nav a.active,
+  .light .navbar a.active,
+  .light .sidebar a.active,
+  .light nav a:hover,
+  .light .navbar a:hover,
+  .light .sidebar a:hover {
+    color: #00ff41 !important;
+    text-shadow: 0 0 8px #00ff41cc;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    /* Use direct CSS here instead of @apply with slashed class */
+    ::selection {
+      background-color: rgba(139, 92, 246, 0.3); /* cyber-purple with 30% opacity */
+      color: hsl(var(--foreground));
+    }
+  }
+
+  html {
+    @apply scroll-smooth;
+    font-family: 'Hack', monospace, system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased overflow-x-hidden relative;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
+    height: 100vh;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  /* Ghost lines animation for the bg */
+  body.dark::before {
+    content: "";
+    @apply absolute inset-0 bg-[linear-gradient(transparent_1px,transparent_1px),linear-gradient(90deg,#1EAEDB10_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none z-0;
+  }
+
+  body.light::before {
+    content: "";
+    @apply absolute inset-0 bg-[linear-gradient(transparent_1px,transparent_1px),linear-gradient(90deg,#1a1f2c10_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none z-0;
+  }
+  
+  /* Specific customizations */
+  .terminal-text {
+    @apply font-mono text-cyber-green dark:text-cyber-green light:text-cyber-dark;
+  }
+  
+  .ascii-art {
+    @apply font-mono text-xs leading-none whitespace-pre;
+  }
+  
+  /* Make section backgrounds semi-transparent to show matrix rain */
+  section {
+    @apply backdrop-blur-sm bg-cyber-dark/50 relative z-10;
+    border-top: 1px solid rgba(0, 255, 65, 0.1);
+    border-bottom: 1px solid rgba(0, 255, 65, 0.1);
+  }
+  
+  /* Enhanced glow effects */
+  .glow {
+    @apply relative;
+  }
+  
+  .glow::after {
+    content: "";
+    @apply absolute inset-0 rounded-md opacity-0 transition-opacity duration-300 ease-in-out;
+    box-shadow: 0 0 15px 2px var(--glow-color, theme('colors.cyber.green'));
+  }
+  
+  .glow:hover::after {
+    @apply opacity-100;
+  }
+  
+  .glow-green {
+    --glow-color: theme('colors.cyber.green');
+  }
+  
+  .glow-blue {
+    --glow-color: theme('colors.cyber.blue');
+  }
+  
+  .glow-purple {
+    --glow-color: theme('colors.cyber.purple');
+  }
+  
+  /* Digital scan line effect */
+  .scan-effect::before {
+    content: '';
+    @apply absolute left-0 top-0 right-0 h-[1px] bg-cyber-green/30 z-10;
+    animation: scan-line 3s linear infinite;
+  }
+  
+  @keyframes scan-line {
+    0% { top: 0; opacity: 0.8; }
+    50% { opacity: 0.1; }
+    100% { top: 100%; opacity: 0.8; }
+  }
+  
+  .typewriter {
+    @apply overflow-hidden whitespace-nowrap border-r-2;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  /* Matrix Rain */
+  .matrix-rain {
+    @apply fixed inset-0 pointer-events-none opacity-20 z-0;
+  }
+  
+  .link-hover {
+    @apply relative inline-block;
+  }
+  
+  .link-hover::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-current transition-all duration-300;
+  }
+  
+  .link-hover:hover::after {
+    @apply w-full;
+  }
+  
+  /* Cyberpunk cards - enhanced transparency */
+  .cyber-card {
+    @apply bg-cyber-dark/70 rounded-md p-4 relative overflow-hidden backdrop-blur-sm;
+    border: 1px solid rgba(0, 255, 65, 0.2); /* cyber-green with 20% opacity */
+    transition: all 0.3s ease;
+  }
+
+  .cyber-card:hover {
+    @apply bg-cyber-dark/90;
+    box-shadow: 0 0 15px 2px rgba(0, 255, 65, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .light .cyber-card {
+    @apply bg-gray-100/80;
+    border: 1px solid rgba(0, 255, 65, 0.4); /* cyber-green with 40% opacity */
+  }
+  
+  .cyber-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-gradient-to-b;
+  }
+  
+  .card-green::before {
+    background-image: linear-gradient(to bottom, theme('colors.cyber.green'), transparent);
+  }
+  
+  .card-blue::before {
+    background-image: linear-gradient(to bottom, theme('colors.cyber.blue'), transparent);
+  }
+  
+  .card-purple::before {
+    background-image: linear-gradient(to bottom, theme('colors.cyber.purple'), transparent);
+  }
+  
+  /* Glitch effect */
+  .glitch-text {
+    position: relative;
+    animation: glitch 3s infinite;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -1px 0 #00ff41;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+  
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: -1px 0 #1eaedb;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim-2 5s infinite linear alternate-reverse;
+  }
+  
+  @keyframes glitch-anim {
+    0% { clip: rect(40px, 9999px, 52px, 0); }
+    5% { clip: rect(8px, 9999px, 97px, 0); }
+    10% { clip: rect(76px, 9999px, 3px, 0); }
+    15% { clip: rect(35px, 9999px, 100px, 0); }
+    20% { clip: rect(82px, 9999px, 98px, 0); }
+    25% { clip: rect(99px, 9999px, 94px, 0); }
+    30% { clip: rect(8px, 9999px, 53px, 0); }
+    35% { clip: rect(91px, 9999px, 58px, 0); }
+    40% { clip: rect(33px, 9999px, 40px, 0); }
+    45% { clip: rect(11px, 9999px, 31px, 0); }
+    50% { clip: rect(5px, 9999px, 55px, 0); }
+    55% { clip: rect(34px, 9999px, 10px, 0); }
+    60% { clip: rect(46px, 9999px, 63px, 0); }
+    65% { clip: rect(3px, 9999px, 40px, 0); }
+    70% { clip: rect(80px, 9999px, 80px, 0); }
+    75% { clip: rect(21px, 9999px, 79px, 0); }
+    80% { clip: rect(56px, 9999px, 71px, 0); }
+    85% { clip: rect(99px, 9999px, 35px, 0); }
+    90% { clip: rect(84px, 9999px, 11px, 0); }
+    95% { clip: rect(91px, 9999px, 59px, 0); }
+    100% { clip: rect(61px, 9999px, 97px, 0); }
+  }
+  
+  @keyframes glitch-anim-2 {
+    0% { clip: rect(18px, 9999px, 95px, 0); }
+    5% { clip: rect(71px, 9999px, 10px, 0); }
+    10% { clip: rect(7px, 9999px, 31px, 0); }
+    15% { clip: rect(51px, 9999px, 84px, 0); }
+    20% { clip: rect(21px, 9999px, 60px, 0); }
+    25% { clip: rect(86px, 9999px, 54px, 0); }
+    30% { clip: rect(11px, 9999px, 44px, 0); }
+    35% { clip: rect(76px, 9999px, 4px, 0); }
+    40% { clip: rect(35px, 9999px, 64px, 0); }
+    45% { clip: rect(62px, 9999px, 32px, 0); }
+    50% { clip: rect(93px, 9999px, 34px, 0); }
+    55% { clip: rect(5px, 9999px, 87px, 0); }
+    60% { clip: rect(6px, 9999px, 65px, 0); }
+    65% { clip: rect(34px, 9999px, 98px, 0); }
+    70% { clip: rect(99px, 9999px, 34px, 0); }
+    75% { clip: rect(15px, 9999px, 75px, 0); }
+    80% { clip: rect(20px, 9999px, 20px, 0); }
+    85% { clip: rect(67px, 9999px, 58px, 0); }
+    90% { clip: rect(57px, 9999px, 35px, 0); }
+    95% { clip: rect(4px, 9999px, 66px, 0); }
+    100% { clip: rect(49px, 9999px, 52px, 0); }
+  }
+  
+  /* Easter egg */
+  #easter-egg {
+    @apply hidden;
+  }
+  
+  #easter-egg.show {
+    @apply block;
+  }
+
+  /* Light mode specific overrides */
+  .light {
+    @apply text-gray-800;
+  }
+
+  .light .cyber-text-gradient {
+    @apply bg-gradient-to-r from-cyber-dark via-cyber-blue to-cyber-purple bg-clip-text text-transparent;
+  }
+
+  .light .text-gray-300,
+  .light .text-gray-400 {
+    @apply text-gray-600;
+  }
+
+  /* Replace opacity classes with direct CSS */
+  .light .bg-cyber-black\/50 {
+    background-color: rgba(13, 13, 13, 0.5);
+  }
+
+  .light .border-gray-700 {
+    @apply border-gray-300;
+  }
+
+  .light .bg-cyber-dark\/50 {
+    background-color: rgba(26, 31, 44, 0.5);
+  }
+  
+  /* Terminal-like text effect */
+  .terminal-effect {
+    border-right: 0.15em solid #00ff41;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #00ff41 }
+  }
+}
+
+@layer utilities {
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Fix glass-morphism with direct CSS */
+  .glass-morphism {
+    backdrop-filter: blur(24px);
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Fix neo-blur with direct CSS */
+  .neo-blur {
+    backdrop-filter: blur(32px);
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Fix text-gradient with direct CSS */
+  .text-gradient {
+    background-image: linear-gradient(to bottom right, white, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .cyber-text-gradient {
+    @apply bg-gradient-to-r from-cyber-green via-cyber-blue to-cyber-purple bg-clip-text text-transparent;
+  }
+
+  /* Add 3D card effects */
+  .perspective-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  }
+
+  .cyber-card-3d {
+    will-change: transform;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .cyber-card-3d:hover {
+    box-shadow: 
+      0 10px 30px -5px rgba(0, 255, 65, 0.3),
+      0 5px 15px -5px rgba(30, 174, 219, 0.2);
+  }
+
+  /* Add tilt hover animation */
+  @keyframes card-tilt {
+    0%, 100% {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+      transform: rotateX(1deg) rotateY(-1deg);
+    }
+    50% {
+      transform: rotateX(-1deg) rotateY(1deg);
+    }
+    75% {
+      transform: rotateX(1deg) rotateY(1deg);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out forwards;
+  }
+
+  @keyframes scale-in {
+    from {
+      transform: scale(0.95);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Digital interference effect */
+  .digital-interference {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .digital-interference::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(0, 255, 65, 0.5);
+    animation: interference 4s ease-in-out infinite;
+  }
+  
+  @keyframes interference {
+    0% { left: -100%; opacity: 0.7; }
+    40% { left: 100%; opacity: 0.5; }
+    100% { left: 100%; opacity: 0; }
+  }
+  
+  /* Neon text glow */
+  .neon-text-green {
+    color: #00FF41;
+    text-shadow: 0 0 5px rgba(0, 255, 65, 0.7), 0 0 10px rgba(0, 255, 65, 0.5), 0 0 15px rgba(0, 255, 65, 0.3);
+  }
+  
+  .neon-text-blue {
+    color: #1EAEDB;
+    text-shadow: 0 0 5px rgba(30, 174, 219, 0.7), 0 0 10px rgba(30, 174, 219, 0.5), 0 0 15px rgba(30, 174, 219, 0.3);
+  }
+  
+  .neon-text-purple {
+    color: #8B5CF6;
+    text-shadow: 0 0 5px rgba(139, 92, 246, 0.7), 0 0 10px rgba(139, 92, 246, 0.5), 0 0 15px rgba(139, 92, 246, 0.3);
+  }
+}

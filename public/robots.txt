@@ -1,0 +1,23 @@
+
+User-agent: *
+Allow: /
+Sitemap: https://samipshah.com.np/sitemap.xml
+
+# Allow specific search engines
+User-agent: Googlebot
+Allow: /
+Disallow: /private/
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Optimize crawling
+Crawl-delay: 10
+
+# Block sensitive directories
+Disallow: /admin/
+Disallow: /private/
+Disallow: /internal/
