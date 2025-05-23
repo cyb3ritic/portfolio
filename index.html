@@ -1,549 +1,85 @@
+
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    <title>cyb3ritic | Ethical Hacker & Security Researcher</title>
+    <meta name="description" content="Cybersecurity portfolio of cyb3ritic (Samip Aanand Shah), an ethical hacker specializing in penetration testing, vulnerability research, and security analysis." />
+    <meta name="author" content="Samip Aanand Shah (cyb3ritic)" />
+    
+    <!-- Enhanced SEO meta tags -->
+    <meta name="keywords" content="cybersecurity, ethical hacking, penetration testing, vulnerability research, cyb3ritic, Samip Aanand Shah, bug bounty, security researcher, hacking, CTF, offensive security" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://samipshah.com.np" />
+    <meta property="og:title" content="cyb3ritic | Ethical Hacker & Security Researcher" />
+    <meta property="og:description" content="Discover the cybersecurity portfolio of cyb3ritic, featuring penetration testing insights, vulnerability research, and ethical hacking expertise." />
+    <meta property="og:image" content="/cybersecurity-og-image.jpg" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@cyb3ritic" />
+    <meta name="twitter:title" content="cyb3ritic | Cybersecurity Expert" />
+    <meta name="twitter:description" content="Explore my journey in cybersecurity: from ethical hacking to vulnerability research and security analysis." />
+    <meta name="twitter:image" content="/cybersecurity-twitter-card.jpg" />
+    
+    <link rel="canonical" href="https://samipshah.com.np" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.cdnfonts.com/css/space-mono" />
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.cdnfonts.com/s/29385/SpaceMono-Regular.woff2" crossorigin />
+    
+    <!-- PWA support -->
+    <meta name="theme-color" content="#1A1F2C" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Security headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:;" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+    
+    <!-- Structured data for better SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Samip Aanand Shah",
+        "alternateName": "cyb3ritic",
+        "url": "https://samipshah.com.np",
+        "jobTitle": "Security Researcher & Ethical Hacker",
+        "sameAs": [
+          "https://github.com/cyb3ritic",
+          "https://linkedin.com/in/cyb3ritic",
+          "https://twitter.com/cyb3ritic"
+        ],
+        "knowsAbout": [
+          "Penetration Testing",
+          "Vulnerability Research",
+          "Ethical Hacking",
+          "Bug Bounty",
+          "Web Application Security",
+          "Network Security"
+        ]
+      }
+    </script>
+  </head>
 
-<head>
-    <meta charset="utf-8">
-    <title>Samip's</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="Portfolio" name="keywords">
-    <meta content="Portfolio" name="description">
-
-    <!-- Favicon -->
-    <link rel="icon" href="img/favicon/favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="/img/favicon/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/img/favicon/site.webmanifest">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- EmailJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <!-- <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script> -->
-
-</head>
-
-<body>
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
-    </div>
-    <!-- Spinner End -->
-
-    <!-- background-video -->
-    <video id="background-video" src="video/background-video1.mp4" autoplay loop muted></video>
-
-
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-4 sticky-lg-top vh-100">
-                <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
-                    <img class="w-100 img-fluid mb-4" src="img/avatar.png" alt="Image">
-                    <div class="user-name text-primary">
-                        <h1>(<h1 style="color:red">Samip A. Shah</h1><h1>)-[<h1 class="text-hacking-green">~</h1><h1>]</h1>
-                    </div>
-                    
-                    <div class="mb-4" style="height: 22px;">
-                        <h4 class="typed-text-output d-inline-block text-hacking-green"></h4>
-                        <div class="typed-text d-none">Ethical Hacker, Bug Bounty Hunter, Penetration Tester, Grey Hat Hacker, Vulnerability Assessor</div>
-                    </div>
-                    <div class="d-flex justify-content-center mt-auto mb-3">
-                        <a class="btn btn-secondary btn-square mx-1" href="https://github.com/cyb3ritic" target="new"><i
-                                class="fab fa-github"></i></a>
-                        <a class="btn btn-secondary btn-square mx-1" href="https://facebook.com/404samip"
-                            target="new"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-secondary btn-square mx-1"
-                            href="https://www.linkedin.com/in/cyb3ritic" target="new"><i
-                                class="fab fa-linkedin-in"></i></a>
-                        <a class="btn btn-secondary btn-square mx-1" href="https://www.instagram.com/404samip/"
-                            target="new"><i class="fab fa-instagram"></i></a>
-                    </div>
-                    <div class="d-flex align-items-end justify-content-between border-top">
-                        <a href="resume/cv.html" target="new" class="btn w-50 border-end"><strong>View CV</strong></a>
-                        <a href="https://blog.samipshah.com.np" target="new" class="btn w-50 btn-scroll"><strong>Checkout My Blog</strong>
-
-
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <!-- About Start -->
-                <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="title pb-3 mb-5">About Me</h1>
-                    <p>Hey there! I’m <strong>cyb3ritic</strong>, a cyber sleuth in training, currently decoding my B.Tech in Computer Science and Engineering at Amrita Vishwa Vidyapeetham, Bangalore. By day, I’m a student; by night, I’m hacking my way through CTFs as part of India’s top team, bi0s. Since joining bi0sblr in 2023, I’ve cracked over 20 CTFs, specializing in web exploitation.</p>
-                        
-                    <p>I’ve got a terminal addiction to Linux and handle tools like Nmap, Metasploit, and Burp Suite like a pro. When I’m not scripting in Python or Bash, I’m breaking the web (ethically, of course) with HTML, CSS, and JavaScript.</p>
-                    
-                    <p>I share my hacking adventures on <a class="text-primary" href="https://blog.samipshah.com.np" target="_blank">blog.samipshah.com.np</a>. Beyond CTFs, I’m into bug bounty hunting.</p>
-                    
-                    <p>Always up for a challenge, I’m eager to patch my knowledge gaps and contribute to the cybersecurity world—because who doesn’t love cracking a tough nut?</p>
-                    
-                    
-                    <div class="row mb-4">
-                        <div class="col-sm-6 py-1">
-                            <span class="fw-medium text-primary">Name:</span> Samip Aanand Shah
-                        </div>
-                        <div class="col-sm-6 py-1">
-                            <span class="fw-medium text-primary">Birthday:</span> 26 Dec. 2002
-                        </div>
-                        <div class="col-sm-6 py-1">
-                            <span class="fw-medium text-primary">Degree:</span> B.Tech Student
-                        </div>
-                        <div class="col-sm-6 py-1">
-                            <span class="fw-medium text-primary">Experience:</span> Member of bi0sblr since May 2023
-                        </div>
-                        <div class="col-sm-6 py-1">
-                            <span class="fw-medium text-primary">Email:</span> cyb3ritic@gmail.com
-                        </div>
-                        <div class="col-sm-6 py-1">
-                            <span class="fw-medium text-primary">Address:</span> Mathura Block, Amrita School of
-                            Engineering, Bangalore-560035
-                        </div>
-                        <div class="col-sm-6 py-1">
-                            <span class="fw-medium text-primary">Freelance:</span> Available
-                        </div>
-                    </div>
-                    <div class="row g-4">
-                        <div class="col-md-4 col-lg-6 col-xl-4">
-                            <div class="d-flex bg-secondary border-2 p-4">
-                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">15</h1>
-                                <div class="ps-3">
-                                    <p class="mb-0">CTFs</p>
-                                    <h5 class="mb-0">Challenges Tackled</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-6 col-xl-4">
-                            <div class="d-flex bg-secondary border-2 p-4">
-                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">2</h1>
-                                <div class="ps-3">
-                                    <p class="mb-0">Years of</p>
-                                    <h5 class="mb-0">Cyber Sleuthing</h5>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 col-lg-6 col-xl-4">
-                            <div class="d-flex bg-secondary border-2 p-4">
-                                <h1 class="flex-shrink-0 display-6 text-primary mb-0" data-toggle="counter-up">999</h1>
-                                <div class="ps-3">
-                                    <p class="mb-0">Passion for</p>
-                                    <h5 class="mb-0">Ethical hacking</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- About End -->
-
-                <!-- Skills Start -->
-                <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="title pb-3 mb-5">Skills</h1>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Web Exploitation</p>
-                                    <p class="mb-2">65%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="65"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Python & Bash</p>
-                                    <p class="mb-2">75%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="55"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Networking & OS</p>
-                                    <p class="mb-2">70%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="70"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Pentesting Tools</p>
-                                    <p class="mb-2">80%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="80"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-2">Detecting Cyber Shenanigans</p>
-                                    <p class="mb-2">90%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" aria-valuenow="90"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="skill mb-4">
-                                <div class="d-flex justify-content-between">
-                                    <p class="mb-2">HTML, CSS & JavaScript</p>
-                                    <p class="mb-2">65%</p>
-                                </div>
-                                <div class="progress">
-                                    <div class="progress-bar bg-info" role="progressbar" aria-valuenow="65"
-                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Skills End -->
-
-                <!-- Qualifications and Achievements Start -->
-                <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="title pb-3 mb-5">Qualifications and Achievements</h1>
-                    <div class="border-start border-3 border-hacking-green pt-2 ps-5">
-                        <div class="position-relative mb-4">
-                            <span class="bi bi-arrow-right fs-4 text-hacking-green position-absolute"
-                                style="top: -5px; left: -50px;"></span>
-                            <h5 class="mb-1">Currently Hacking My Way Through B.Tech</h5>
-                            <p class="mb-2">Amrita School of Engineering | <small>since 2022</small></p>
-                            <p>I'm on a mission at Amrita School of Engineering, where I'm diving deep into the world of Computer Science and Engineering. First and second year conquered with a 9.2 CGPA—no bugs in sight!</p>
-                        </div>
-                        <div class="position-relative mb-4">
-                            <span class="bi bi-arrow-right fs-4 text-hacking-green position-absolute"
-                                style="top: -5px; left: -50px;"></span>
-                            <h5 class="mb-1">Certified Ethical Hacking Enthusiast (EHE)</h5>
-                            <p class="mb-2">EC Council | <small>5<sup>th</sup> April 2023</small></p>
-                            <p>Successfully bypassed the firewalls and earned my Ethical Hacking Essentials (EHE) certificate from EC Council. Date of certification: 05 April 2023. Threat level: Green.</p>
-                        </div>
-                        <div class="position-relative mb-4">
-                            <span class="bi bi-arrow-right fs-4 text-hacking-green position-absolute"
-                                style="top: -5px; left: -50px;"></span>
-                            <h5 class="mb-1">Cybersecurity Virtual Experience Program</h5>
-                            <p class="mb-2">Forage | <small>5<sup>th</sup> August 2023</small></p>
-                            <p>I infiltrated the Cybersecurity Virtual Experience Program hosted by MasterCard and Forage, gaining new exploits to add to my toolkit. Date: 05 August 2023. Mission accomplished.</p>
-                        </div>
-                    </div>
-                </section>
-                <!-- Qualifications and Achievements End -->
-
-
-                <!-- Experience Start -->
-                <section class="py-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="title pb-3 mb-5">Experience</h1>
-                    <div class="border-start border-3 border-hacking-green pt-2 ps-5">
-                        <div class="position-relative mb-4">
-                            <span class="bi bi-arrow-right fs-4 text-hacking-green position-absolute"
-                                style="top: -5px; left: -50px;"></span>
-                            <h5 class="mb-1">Web Exploitation & Pentesting Specialist</h5>
-                            <p class="mb-2">bi0s blr | <small>since May 2023</small></p>
-                            <p>I hacked my way into bi0s blr by securing 2<sup>nd</sup> place in the bi0s CTF, earning my spot on both the web exploitation and pentesting teams. <br>
-                                Whether it's unraveling the web's mysteries or testing the limits of security systems, I'm always on the front lines, turning vulnerabilities into opportunities to level up my hacking game.</p>
-                        </div>
-                    </div>
-                </section>
-                <!-- Experience End -->
-
-
-               <!-- Subscribe Start -->
-                <section class="wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="bg-secondary text-center p-5">
-                        <h1 class="text-hacking-green font-weight-bold">Subscribe My Newsletter</h1>
-                        <p class="text-hacking-green">Subscribe and get my latest article in your inbox</p>
-                        <div class="position-relative w-100">
-                            <input class="form-control bg-secondary w-100 py-3 ps-4 pe-5" type="email"
-                                placeholder="Your email">
-                            <button type="button"
-                                class="btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">Subscribe</button>
-                        </div>
-                    </div>
-                </section>
-                <!-- Subscribe End -->
-
-
-                <!-- Services Start -->
-                <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="title pb-3 mb-5">What I Bring to the Hack Table</h1>
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="service-item">
-                                <i class="fa fa-2x fa-bug mx-auto mb-4"></i>
-                                <h5 class="mb-2">Bug Bounty Blitz</h5>
-                                <p class="mb-0">Hunting down vulnerabilities in web apps like a detective on a mission, and making the internet a safer place—one bug at a time.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service-item">
-                                <i class="fas fa-2x fa-globe service-icon mx-auto mb-4"></i>
-                                <h5 class="mb-2">Web Application Wizardry</h5>
-                                <p class="mb-0">Analyzing and exploiting web apps with the finesse of a master hacker, uncovering hidden flaws and strengthening defenses.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service-item">
-                                <i class="fas fa-2x fa-fingerprint mx-auto mb-4"></i>
-                                <h5 class="mb-2">Pentest Power</h5>
-                                <p class="mb-0">Conducting penetration tests to reveal vulnerabilities and fortify systems, ensuring your network is ironclad against attacks.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="service-item">
-                                <i class="fas fa-2x fa-lock mx-auto mb-4"></i>
-                                <h5 class="mb-2">Security Solutions</h5>
-                                <p class="mb-0">Crafting custom security solutions tailored to your needs, from firewalls to encryption, making sure your data stays safe and sound.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Services End -->
-
-
-                <!-- Portfolio Start -->
-                <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="title pb-3 mb-5">Certificates</h1>
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="row">
-                                <div class="col-12 text-center mb-2">
-                                    <ul class="list-inline mb-4" id="portfolio-flters">
-                                        <li class="btn border active" data-filter="*"><i class="fa fa-star me-2"></i>All
-                                        </li>
-                                        <li class="btn border" data-filter=".first"><i
-                                                class="fa fa-book me-2"></i>Learning</li>
-                                        <li class="btn border" data-filter=".second"><i
-                                                class="fa fa-laptop me-2"></i>Working</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="row portfolio-container">
-                                <div class="col-md-6 mb-4 portfolio-item first">
-                                    <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid certificates" src="img/certificate-1.jpg" alt="">
-                                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/certificate-1.jpg" data-lightbox="portfolio">
-                                                <i class="bi bi-plus text-dark"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4 portfolio-item second">
-                                    <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid certificates" src="img/certificate-2.png" alt="">
-                                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/certificate-2.png" data-lightbox="portfolio">
-                                                <i class="bi bi-plus text-dark"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4 portfolio-item first">
-                                    <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid certificates" src="img/certificate-3.jpeg" alt="">
-                                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/certificate-3.jpeg" data-lightbox="portfolio">
-                                                <i class="bi bi-plus text-dark"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4 portfolio-item second">
-                                    <div class="position-relative overflow-hidden mb-2">
-                                        <img class="img-fluid certificates" src="img/certificate-4.png" alt="">
-                                        <div class="portfolio-btn d-flex align-items-center justify-content-center">
-                                            <a href="img/certificate-4.png" data-lightbox="portfolio">
-                                                <i class="bi bi-plus text-dark"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- Portfolio End -->
-
-                <!-- Testimonial Start -->
-                <!-- <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
-                    <h1 class="title pb-3 mb-5">Testimonial</h1>
-                    <div class="owl-carousel testimonial-carousel">
-                        <div class="text-left">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr
-                                dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet
-                                eirmod eos, labore diam clita</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid" src="img/testimonial-1.jpeg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <p class="text-primary fs-5 mb-1">Sahil Kumar Gupta</p>
-                                    <i>Aspiring Data Scientist</i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-left">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr
-                                dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet
-                                eirmod eos, labore diam clita</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid" src="img/testimonial-2.jpeg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <p class="text-primary fs-5 mb-1">Aaditya Yadav</p>
-                                    <i>Aspiring Software Engineer</i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-left">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr
-                                dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet
-                                eirmod eos, labore diam clita</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid" src="img/testimonial-3.jpeg" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <p class="text-primary fs-5 mb-1">Raushan Kumar Gupta</p>
-                                    <i>AI/ML enthusiast</i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-left">
-                            <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <p class="fs-4 mb-4">Dolor eirmod diam stet kasd sed. Aliqu rebum est eos. Rebum elitr
-                                dolore et eos labore, stet justo sed est sed. Diam sed sed dolor stet accusam amet
-                                eirmod eos, labore diam clita</p>
-                            <div class="d-flex align-items-center">
-                                <img class="img-fluid" src="#" style="width: 60px; height: 60px;">
-                                <div class="ps-3">
-                                    <p class="text-primary fs-5 mb-1">Cyb3ritic</p>
-                                    <i>Ethical Hacker</i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section> -->
-                <!-- Testimonial End -->
-
-                <!-- Contact Start -->
-                <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
-                    <h1 class="title pb-3 mb-5">Contact Me</h1>
-                    <form id="contact-form" onsubmit="sendEmail(event)">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control border-1 bg-secondary" id="name" placeholder="Your Name" >
-                                    <label for="name">Your Name</label>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control border-1 bg-secondary" id="email" placeholder="Your Email" >
-                                    <label for="email">Your Email</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control border-1 bg-secondary" id="subject" placeholder="Subject" >
-                                    <label for="subject">Subject</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control border-1 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px" ></textarea>
-                                    <label for="message">Message</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                            </div>
-                        </div>
-                    </form>
-                </section>
-                <!-- Contact End -->
-
-                <!-- Footer Start -->
-                <section class="wow fadeIn" data-wow-delay="0.1s">
-                    <div class="text-light text-center p-5">
-                        <div class="d-flex justify-content-center mb-4">
-                            <a class="btn btn-secondary btn-square mx-1" href="https://github.com/cyb3ritic"
-                                target="new"><i class="fab fa-github"></i></a>
-                            <a class="btn btn-secondary btn-square mx-1" href="https://facebook.com/404samip"
-                                target="new"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-secondary btn-square mx-1"
-                                href="https://www.linkedin.com/in/cyb3ritic" target="new"><i
-                                    class="fab fa-linkedin-in"></i></a>
-                            <a class="btn btn-secondary btn-square mx-1" href="https://www.instagram.com/404samip/"
-                                target="new"><i class="fab fa-instagram"></i></a>
-                        </div>
-                        <div class="d-flex justify-content-center mb-3">
-                            <a class="text-hacking-green px-3 border-end" href="#">Privacy</a>
-                            <a class="text-hacking-green px-3 border-end" href="#">Terms</a>
-                            <a class="text-hacking-green px-3 border-end" href="#">FAQs</a>
-                            <a class="text-hacking-green px-3" href="#">Help</a>
-                        </div>
-                        <p class="m-0 text-primary">&copy; samipshah.com.np | All Rights Reserved.</p>
-                    </div>
-                </section>
-                <!-- Footer End -->
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Back to Top -->
-    <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/typed/typed.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
-
-    <!-- Include the mail.js script -->
-    <script src="js/mail/mail.js"></script>
-
-    <!-- Include the subscribe.js script -->
-    <!-- <script src="js/subscribe/subscribe.js"></script> -->
-
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
-
-</body>
-
+  <body>
+    <div id="root"></div>
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
