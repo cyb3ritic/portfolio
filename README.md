@@ -2,7 +2,7 @@
 
 Welcome to the source code of my personal portfolio website — a space where I showcase my projects, skills, and professional journey!
 
-🌐 **Live Site**: [Visit Website](https://yourdomain.com)
+🌐 **Live Site**: [Visit Website](https://samipshah.com.np)
 
 ---
 
