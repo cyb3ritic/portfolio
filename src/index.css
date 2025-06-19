@@ -52,178 +52,295 @@
   }
 
   .light {
-    --background: 0 0% 99%;
-    --foreground: 240 10% 3.9%;
+    /* Enhanced light mode with better cyberpunk aesthetic */
+    --background: 0 0% 98%;
+    --foreground: 220 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 220 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 220 15% 15%;
 
-    --primary: 143 100% 38%; /* neon green */
+    --primary: 143 85% 35%; /* Darker neon green for better contrast */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 199 100% 45%; /* electric blue */
+    --secondary: 199 75% 40%; /* Darker electric blue */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 210 20% 94%;
+    --muted-foreground: 220 10% 45%;
 
-    --accent: 273 91% 65%; /* purple */
+    --accent: 273 70% 55%; /* Adjusted purple */
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 75% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 240 5.9% 80%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 60%;
+    --border: 210 25% 85%;
+    --input: 210 25% 92%;
+    --ring: 143 85% 35%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 10% 3.9%;
-    --sidebar-primary: 143 100% 38%;
+    --sidebar-background: 0 0% 97%;
+    --sidebar-foreground: 220 15% 15%;
+    --sidebar-primary: 143 85% 35%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 10% 3.9%;
-    --sidebar-border: 240 5.9% 80%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 210 20% 94%;
+    --sidebar-accent-foreground: 220 15% 15%;
+    --sidebar-border: 210 25% 85%;
+    --sidebar-ring: 199 75% 40%;
   }
 
+  /* Enhanced light mode body styling */
   .light body {
-    color: #181a1b !important;
-    background: #fafbfc !important;
+    color: hsl(220, 15%, 15%) !important;
+    background: linear-gradient(135deg, #fafbfc 0%, #f8fafc 100%) !important;
   }
 
+  /* Light mode grid background */
+  .light body::before {
+    content: "";
+    @apply absolute inset-0 pointer-events-none z-0;
+    background-image: 
+      linear-gradient(rgba(143, 85, 35, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(30, 174, 219, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  /* Enhanced section styling for light mode */
   .light section {
-    background: rgba(255,255,255,0.97) !important;
-    color: #181a1b !important;
-    border-top: 1px solid #b2f5ea !important;
-    border-bottom: 1px solid #b2f5ea !important;
-    backdrop-filter: blur(6px);
+    background: rgba(255, 255, 255, 0.85) !important;
+    color: hsl(220, 15%, 15%) !important;
+    border-top: 1px solid rgba(143, 85, 35, 0.15) !important;
+    border-bottom: 1px solid rgba(30, 174, 219, 0.15) !important;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.03);
   }
 
+  /* Enhanced cyber-card for light mode */
   .light .cyber-card {
-    background: #fff !important;
-    color: #181a1b !important;
-    border: 1.5px solid #00ff41 !important;
-    box-shadow: 0 2px 12px 0 rgba(30, 174, 219, 0.07);
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: hsl(220, 15%, 15%) !important;
+    border: 1.5px solid rgba(143, 85, 35, 0.3) !important;
+    box-shadow: 0 4px 20px rgba(30, 174, 219, 0.08);
   }
+  
   .light .cyber-card:hover {
-    background: #f3fff7 !important;
-    box-shadow: 0 0 18px 2px #00ff4133;
-    transform: translateY(-2px) scale(1.01);
+    background: rgba(248, 255, 252, 0.95) !important;
+    box-shadow: 
+      0 0 25px rgba(143, 85, 35, 0.2),
+      0 8px 32px rgba(30, 174, 219, 0.12);
+    transform: translateY(-3px) scale(1.02);
   }
 
+  /* Enhanced gradient text for light mode */
   .light .cyber-text-gradient {
-    background-image: linear-gradient(90deg, #00ff41, #1eaedb, #8B5CF6);
+    background-image: linear-gradient(90deg, 
+      hsl(143, 85%, 25%), 
+      hsl(199, 75%, 35%), 
+      hsl(273, 70%, 45%)
+    );
     background-clip: text;
+    -webkit-background-clip: text;
     color: transparent !important;
+    font-weight: 600;
   }
 
+  /* Enhanced glow effects for light mode */
   .light .glow::after {
-    box-shadow: 0 0 15px 2px #00ff41;
+    box-shadow: 0 0 20px 3px rgba(143, 85, 35, 0.3);
   }
 
   .light .digital-interference::before {
-    background-color: rgba(30, 174, 219, 0.25);
+    background-color: rgba(30, 174, 219, 0.4);
   }
 
   .light .matrix-rain {
-    opacity: 0.7;
+    opacity: 0.4;
   }
 
+  /* Better text contrast for light mode */
   .light .text-muted-foreground {
-    color: #4b5563 !important;
+    color: hsl(220, 10%, 45%) !important;
   }
 
+  .light .text-gray-300,
+  .light .text-gray-400 {
+    color: hsl(220, 8%, 50%) !important;
+  }
+
+  /* Enhanced border colors */
   .light .border-gray-700,
   .light .border-cyber-dark {
-    border-color: #b2f5ea !important;
+    border-color: rgba(143, 85, 35, 0.25) !important;
   }
 
+  /* Better background colors */
   .light .bg-cyber-dark\/50 {
-    background-color: rgba(26, 31, 44, 0.08) !important;
+    background-color: rgba(248, 250, 252, 0.8) !important;
   }
 
   .light .bg-cyber-black\/50 {
-    background-color: rgba(13, 13, 13, 0.04) !important;
+    background-color: rgba(245, 247, 250, 0.9) !important;
   }
 
   .light .bg-cyber-dark {
-    background-color: #f3f4f6 !important;
+    background-color: hsl(210, 20%, 96%) !important;
   }
 
+  /* Enhanced neon text colors for light mode */
   .light .text-cyber-green {
-    color: #00ff41 !important;
-    text-shadow: 0 0 6px #00ff41cc;
-  }
-  .light .text-cyber-blue {
-    color: #1eaedb !important;
-    text-shadow: 0 0 6px #1eaedbcc;
-  }
-  .light .text-cyber-purple {
-    color: #8B5CF6 !important;
-    text-shadow: 0 0 6px #8B5CF6cc;
-  }
-
-  .light a {
-    color: #00ff41 !important;
-    text-shadow: 0 0 4px #00ff41aa;
+    color: hsl(143, 85%, 30%) !important;
+    text-shadow: 0 0 8px rgba(143, 85, 35, 0.4);
     font-weight: 600;
   }
+  
+  .light .text-cyber-blue {
+    color: hsl(199, 75%, 35%) !important;
+    text-shadow: 0 0 8px rgba(30, 174, 219, 0.4);
+    font-weight: 600;
+  }
+  
+  .light .text-cyber-purple {
+    color: hsl(273, 70%, 45%) !important;
+    text-shadow: 0 0 8px rgba(139, 92, 246, 0.4);
+    font-weight: 600;
+  }
+
+  /* Enhanced link styling */
+  .light a {
+    color: hsl(143, 85%, 30%) !important;
+    text-shadow: 0 0 6px rgba(143, 85, 35, 0.3);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
   .light a:hover {
-    color: #1eaedb !important;
-    text-shadow: 0 0 6px #1eaedbcc;
+    color: hsl(199, 75%, 35%) !important;
+    text-shadow: 0 0 10px rgba(30, 174, 219, 0.4);
+    border-bottom-color: currentColor;
   }
 
-  .light code, .light pre {
-    background: #f3f4f6 !important;
-    color: #181a1b !important;
+  /* Enhanced code styling */
+  .light code, 
+  .light pre {
+    background: hsl(210, 25%, 95%) !important;
+    color: hsl(220, 15%, 20%) !important;
+    border: 1px solid rgba(143, 85, 35, 0.15);
+    border-radius: 4px;
   }
 
-  .light .sticky, .light .fixed {
-    box-shadow: 0 2px 8px 0 rgba(30, 174, 219, 0.09);
-    background: #fff !important;
+  /* Enhanced sticky/fixed elements */
+  .light .sticky, 
+  .light .fixed {
+    box-shadow: 0 4px 20px rgba(30, 174, 219, 0.08);
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(12px);
   }
 
-  /* Navbar/sidebar hacker look */
+  /* Enhanced navbar/sidebar for light mode */
   .light nav,
   .light .navbar,
   .light .sidebar {
-    background: #fff !important;
-    color: #181a1b !important;
-    border-bottom: 2px solid #00ff41 !important;
-    box-shadow: 0 2px 16px 0 #00ff4122;
+    background: rgba(255, 255, 255, 0.95) !important;
+    color: hsl(220, 15%, 15%) !important;
+    border-bottom: 2px solid rgba(143, 85, 35, 0.3) !important;
+    box-shadow: 0 4px 24px rgba(30, 174, 219, 0.1);
+    backdrop-filter: blur(12px);
   }
+  
   .light nav a,
   .light .navbar a,
   .light .sidebar a {
-    color: #181a1b !important;
+    color: hsl(220, 15%, 25%) !important;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
-    transition: color 0.2s, text-shadow 0.2s;
+    transition: all 0.3s ease;
+    position: relative;
   }
+  
   .light nav a.active,
   .light .navbar a.active,
   .light .sidebar a.active,
   .light nav a:hover,
   .light .navbar a:hover,
   .light .sidebar a:hover {
-    color: #00ff41 !important;
-    text-shadow: 0 0 8px #00ff41cc;
+    color: hsl(143, 85%, 30%) !important;
+    text-shadow: 0 0 12px rgba(143, 85, 35, 0.4);
+  }
+
+  /* Add subtle animation to active/hover states */
+  .light nav a.active::after,
+  .light .navbar a.active::after,
+  .light .sidebar a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      hsl(143, 85%, 30%), 
+      hsl(199, 75%, 35%)
+    );
+    border-radius: 1px;
+  }
+
+  /* Enhanced terminal text for light mode */
+  .light .terminal-text {
+    color: hsl(143, 85%, 25%) !important;
+    font-weight: 600;
+    text-shadow: 0 0 6px rgba(143, 85, 35, 0.3);
+  }
+
+  /* Enhanced neon effects for light mode */
+  .light .neon-text-green {
+    color: hsl(143, 85%, 25%) !important;
+    text-shadow: 
+      0 0 5px rgba(143, 85, 35, 0.5), 
+      0 0 10px rgba(143, 85, 35, 0.3), 
+      0 0 15px rgba(143, 85, 35, 0.2);
+  }
+  
+  .light .neon-text-blue {
+    color: hsl(199, 75%, 30%) !important;
+    text-shadow: 
+      0 0 5px rgba(30, 174, 219, 0.5), 
+      0 0 10px rgba(30, 174, 219, 0.3), 
+      0 0 15px rgba(30, 174, 219, 0.2);
+  }
+  
+  .light .neon-text-purple {
+    color: hsl(273, 70%, 40%) !important;
+    text-shadow: 
+      0 0 5px rgba(139, 92, 246, 0.5), 
+      0 0 10px rgba(139, 92, 246, 0.3), 
+      0 0 15px rgba(139, 92, 246, 0.2);
+  }
+
+  /* Enhanced selection color for light mode */
+  .light ::selection {
+    background-color: rgba(143, 85, 35, 0.2);
+    color: hsl(220, 15%, 15%);
+  }
+
+  /* Add subtle pulse animation to important elements */
+  .light .cyber-card:hover::before {
+    animation: pulse-light 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-light {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
   }
 }
 
 @layer base {
   * {
     @apply border-border;
-    /* Use direct CSS here instead of @apply with slashed class */
-    ::selection {
-      background-color: rgba(139, 92, 246, 0.3); /* cyber-purple with 30% opacity */
-      color: hsl(var(--foreground));
-    }
   }
 
   html {
@@ -245,11 +362,6 @@
   body.dark::before {
     content: "";
     @apply absolute inset-0 bg-[linear-gradient(transparent_1px,transparent_1px),linear-gradient(90deg,#1EAEDB10_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none z-0;
-  }
-
-  body.light::before {
-    content: "";
-    @apply absolute inset-0 bg-[linear-gradient(transparent_1px,transparent_1px),linear-gradient(90deg,#1a1f2c10_1px,transparent_1px)] bg-[size:30px_30px] pointer-events-none z-0;
   }
   
   /* Specific customizations */
@@ -334,7 +446,7 @@
   /* Cyberpunk cards - enhanced transparency */
   .cyber-card {
     @apply bg-cyber-dark/70 rounded-md p-4 relative overflow-hidden backdrop-blur-sm;
-    border: 1px solid rgba(0, 255, 65, 0.2); /* cyber-green with 20% opacity */
+    border: 1px solid rgba(0, 255, 65, 0.2);
     transition: all 0.3s ease;
   }
 
@@ -342,11 +454,6 @@
     @apply bg-cyber-dark/90;
     box-shadow: 0 0 15px 2px rgba(0, 255, 65, 0.15);
     transform: translateY(-2px);
-  }
-
-  .light .cyber-card {
-    @apply bg-gray-100/80;
-    border: 1px solid rgba(0, 255, 65, 0.4); /* cyber-green with 40% opacity */
   }
   
   .cyber-card::before {
@@ -452,33 +559,6 @@
   #easter-egg.show {
     @apply block;
   }
-
-  /* Light mode specific overrides */
-  .light {
-    @apply text-gray-800;
-  }
-
-  .light .cyber-text-gradient {
-    @apply bg-gradient-to-r from-cyber-dark via-cyber-blue to-cyber-purple bg-clip-text text-transparent;
-  }
-
-  .light .text-gray-300,
-  .light .text-gray-400 {
-    @apply text-gray-600;
-  }
-
-  /* Replace opacity classes with direct CSS */
-  .light .bg-cyber-black\/50 {
-    background-color: rgba(13, 13, 13, 0.5);
-  }
-
-  .light .border-gray-700 {
-    @apply border-gray-300;
-  }
-
-  .light .bg-cyber-dark\/50 {
-    background-color: rgba(26, 31, 44, 0.5);
-  }
   
   /* Terminal-like text effect */
   .terminal-effect {
@@ -509,7 +589,6 @@
     display: none;
   }
 
-  /* Fix glass-morphism with direct CSS */
   .glass-morphism {
     backdrop-filter: blur(24px);
     background-color: rgba(255, 255, 255, 0.05);
@@ -517,14 +596,12 @@
     box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
   }
   
-  /* Fix neo-blur with direct CSS */
   .neo-blur {
     backdrop-filter: blur(32px);
     background-color: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
-  /* Fix text-gradient with direct CSS */
   .text-gradient {
     background-image: linear-gradient(to bottom right, white, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
     background-clip: text;
@@ -535,7 +612,6 @@
     @apply bg-gradient-to-r from-cyber-green via-cyber-blue to-cyber-purple bg-clip-text text-transparent;
   }
 
-  /* Add 3D card effects */
   .perspective-card {
     perspective: 1000px;
     transform-style: preserve-3d;
@@ -553,7 +629,6 @@
       0 5px 15px -5px rgba(30, 174, 219, 0.2);
   }
 
-  /* Add tilt hover animation */
   @keyframes card-tilt {
     0%, 100% {
       transform: rotateX(0deg) rotateY(0deg);
@@ -584,7 +659,6 @@
     }
   }
   
-  /* Digital interference effect */
   .digital-interference {
     position: relative;
     overflow: hidden;
@@ -607,7 +681,6 @@
     100% { left: 100%; opacity: 0; }
   }
   
-  /* Neon text glow */
   .neon-text-green {
     color: #00FF41;
     text-shadow: 0 0 5px rgba(0, 255, 65, 0.7), 0 0 10px rgba(0, 255, 65, 0.5), 0 0 15px rgba(0, 255, 65, 0.3);
