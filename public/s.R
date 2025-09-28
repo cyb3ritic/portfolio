@@ -1,12 +1,3 @@
-import React from "react";
-
-export default function BA() {
-  return (
-    <div style={{ padding: "20px", fontFamily: "monospace" }}>
-      <h1>Python Hello World</h1>
-      <pre>
-{`
-
 # Load required libraries
 library(rpart)
 library(ggplot2)
@@ -130,10 +121,3 @@ plot(test$Species, rf_pred,
      col = "green", pch = 19)
 
 
-
-
-`}
-      </pre>
-    </div>
-  );
-}
