@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function PythonPage() {
+export default function BA() {
   return (
     <div style={{ padding: "20px", fontFamily: "monospace" }}>
       <h1>Python Hello World</h1>
