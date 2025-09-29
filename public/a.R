@@ -17,7 +17,7 @@ split <- sample.split(iris_norm$Species, SplitRatio = 0.7)
 train <- subset(iris_norm, split == TRUE)
 test <- subset(iris_norm, split == FALSE)
 
-install.packages("nnet)
+install.packages("nnet")
 library(nnet)
 model <- multinom(Species ~., data = train)
 pred <- predict(model, newdata = test)
