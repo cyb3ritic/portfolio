@@ -121,3 +121,18 @@ plot(test$Species, rf_pred,
      col = "green", pch = 19)
 
 
+# naive bayes classifier
+#install.packages("e1071")     # Run only once
+library(e1071)
+data(iris)
+head(iris)
+set.seed(1234)  # for reproducibility
+index <- sample(1:nrow(iris), size = 0.7 * nrow(iris))
+train_data <- iris[index, ]
+test_data  <- iris[-index, ]
+nb_model <- naiveBayes(Species ~ ., data = train_data)
+print(nb_model)
+predictions <- predict(nb_model, newdata = test_data)
+library(caret)
+conf_matrix <- confusionMatrix(predictions, test_data$Species)
+print(conf_matrix)
