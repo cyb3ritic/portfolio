@@ -2,16 +2,13 @@
 import React, { useState, useEffect, Suspense, lazy } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import NavBar from "@/components/NavBar";
+import Layout from "@/components/Layout";
 import LoadingOverlay from "@/components/home/LoadingOverlay";
 import IntroSection from "@/components/home/IntroSection";
 import AboutSection from "@/components/AboutSection";
-import MatrixRain from "@/components/MatrixRain";
-import CyberScroll from "@/components/CyberScroll";
-import Footer from "@/components/home/Footer";
-import EasterEgg from "@/components/EasterEgg";
 import ContactSection from "@/components/ContactSection";
 import BlogSection from "@/components/BlogSection";
+import { useScrollSpy } from "@/hooks/useScrollSpy";
 
 // Lazy load heavier components for better initial load time
 const SkillsSection = lazy(() => import("@/components/SkillsSection"));
@@ -22,8 +19,10 @@ const Testimonials = lazy(() => import("@/components/Testimonials"));
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showEasterEgg, setShowEasterEgg] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
   const location = useLocation();
+
+  const sectionIds = ["home", "about", "skills", "projects", "blog", "certifications", "contact"];
+  const activeSection = useScrollSpy(sectionIds);
 
   // Handle navigation from URL hash
   useEffect(() => {
@@ -33,7 +32,6 @@ const Index = () => {
         const section = document.getElementById(hash);
         if (section) {
           section.scrollIntoView({ behavior: "smooth" });
-          setActiveSection(hash);
         }
       }, 100);
     }
@@ -41,7 +39,6 @@ const Index = () => {
 
   // Handle scroll to section
   const handleNavClick = (section: string) => {
-    setActiveSection(section);
     const element = document.getElementById(section);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
@@ -54,33 +51,6 @@ const Index = () => {
   const handleIntroComplete = () => {
     setIsLoading(false);
   };
-
-  // Track active section while scrolling
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "about", "skills", "projects", "blog", "certifications", "contact"];
-      const scrollPosition = window.scrollY + 200;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (!element) continue;
-
-        const offsetTop = element.offsetTop;
-        const offsetHeight = element.offsetHeight;
-
-        if (
-          scrollPosition >= offsetTop &&
-          scrollPosition < offsetTop + offsetHeight
-        ) {
-          setActiveSection(section);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   // Handle konami code easter egg
   useEffect(() => {
@@ -114,34 +84,25 @@ const Index = () => {
       {isLoading ? (
         <LoadingOverlay onComplete={handleIntroComplete} />
       ) : (
-        <div className="relative overflow-hidden min-h-screen">
-          {/* Matrix rain in the background with higher z-index than before */}
-          <MatrixRain density={15} speed={15} />
-          <CyberScroll />
+        <Layout 
+          activeSection={activeSection} 
+          onNavClick={handleNavClick}
+          showEasterEgg={showEasterEgg}
+          setShowEasterEgg={setShowEasterEgg}
+        >
+          <IntroSection onComplete={() => {}} onNavClick={handleNavClick} />
+          <AboutSection onNavClick={handleNavClick} />
           
-          <NavBar onNavClick={handleNavClick} activeSection={activeSection} />
+          <Suspense fallback={<div className="min-h-screen"></div>}>
+            <SkillsSection />
+            <ProjectsSection />
+            <BlogSection />
+            <CertificationsSection />
+            <Testimonials />
+          </Suspense>
           
-          <main className="relative z-10">
-            <IntroSection onComplete={() => {}} onNavClick={handleNavClick} />
-            <AboutSection onNavClick={handleNavClick} />
-            
-            <Suspense fallback={<div className="min-h-screen"></div>}>
-              <SkillsSection />
-              <ProjectsSection />
-              <BlogSection />
-              <CertificationsSection />
-              <Testimonials />
-            </Suspense>
-            
-            <ContactSection />
-          </main>
-
-          <Footer onEasterEggClick={() => setShowEasterEgg(false)} />
-          
-          {showEasterEgg && (
-            <EasterEgg onClose={() => setShowEasterEgg(false)} />
-          )}
-        </div>
+          <ContactSection />
+        </Layout>
       )}
     </>
   );
