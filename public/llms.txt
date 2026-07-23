@@ -1,0 +1,26 @@
+# Samip Aanand Shah (cyb3ritic)
+
+> Ethical hacker and security researcher from Nepal specializing in web application penetration testing, vulnerability research, CTF competitions, and tool development.
+
+## About
+
+Cybersecurity portfolio of Samip Aanand Shah, known online as cyb3ritic. Dedicated to responsible disclosure, offensive security research, and continuous learning in the field of information security.
+
+## Key Sections
+
+- **About**: Background, role as Ethical Hacker & Security Researcher, based in Nepal
+- **Skills**: Tools & Frameworks (Burp Suite, Nmap, Metasploit, etc.), Languages (Python, Bash, JavaScript, etc.), Security Domains (Web App Pentesting, Bug Bounty, Reverse Engineering, etc.)
+- **Projects**: Offensive security tools and research projects with GitHub repositories
+- **Achievements**: CTF rankings, bug bounty stats, and research milestones
+- **Blog**: HackTheBox and TryHackMe writeups, cybersecurity research posts
+- **Certifications**: Verified cybersecurity certifications
+- **Contact**: Email, GitHub, LinkedIn, blog
+
+## Links
+
+- Website: https://samipshah.com.np
+- GitHub: https://github.com/cyb3ritic
+- LinkedIn: https://linkedin.com/in/cyb3ritic
+- Blog: https://blog.samipshah.com.np
+- Email: cy3ritic@gmail.com
+- Resume: https://samipshah.com.np/resume.pdf

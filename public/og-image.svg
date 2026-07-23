@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0D0D0D"/>
+      <stop offset="100%" style="stop-color:#1A1F2C"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00FF41"/>
+      <stop offset="50%" style="stop-color:#1EAEDB"/>
+      <stop offset="100%" style="stop-color:#8B5CF6"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Grid lines -->
+  <g opacity="0.06" stroke="#1EAEDB" stroke-width="1">
+    <line x1="0" y1="0" x2="0" y2="630"/><line x1="60" y1="0" x2="60" y2="630"/>
+    <line x1="120" y1="0" x2="120" y2="630"/><line x1="180" y1="0" x2="180" y2="630"/>
+    <line x1="240" y1="0" x2="240" y2="630"/><line x1="300" y1="0" x2="300" y2="630"/>
+    <line x1="360" y1="0" x2="360" y2="630"/><line x1="420" y1="0" x2="420" y2="630"/>
+    <line x1="480" y1="0" x2="480" y2="630"/><line x1="540" y1="0" x2="540" y2="630"/>
+    <line x1="600" y1="0" x2="600" y2="630"/><line x1="660" y1="0" x2="660" y2="630"/>
+    <line x1="720" y1="0" x2="720" y2="630"/><line x1="780" y1="0" x2="780" y2="630"/>
+    <line x1="840" y1="0" x2="840" y2="630"/><line x1="900" y1="0" x2="900" y2="630"/>
+    <line x1="960" y1="0" x2="960" y2="630"/><line x1="1020" y1="0" x2="1020" y2="630"/>
+    <line x1="1080" y1="0" x2="1080" y2="630"/><line x1="1140" y1="0" x2="1140" y2="630"/>
+    <line x1="1200" y1="0" x2="1200" y2="630"/>
+    <line x1="0" y1="0" x2="1200" y2="0"/><line x1="0" y1="60" x2="1200" y2="60"/>
+    <line x1="0" y1="120" x2="1200" y2="120"/><line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="240" x2="1200" y2="240"/><line x1="0" y1="300" x2="1200" y2="300"/>
+    <line x1="0" y1="360" x2="1200" y2="360"/><line x1="0" y1="420" x2="1200" y2="420"/>
+    <line x1="0" y1="480" x2="1200" y2="480"/><line x1="0" y1="540" x2="1200" y2="540"/>
+    <line x1="0" y1="600" x2="1200" y2="600"/>
+  </g>
+
+  <!-- Top accent line -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+
+  <!-- Terminal prompt decoration -->
+  <text x="80" y="200" font-family="monospace" font-size="28" fill="#1EAEDB" opacity="0.7">$</text>
+
+  <!-- Main title: cyb3ritic -->
+  <text x="80" y="280" font-family="'Courier New', monospace" font-size="120" font-weight="bold" fill="#00FF41"
+        style="filter: drop-shadow(0 0 20px rgba(0,255,65,0.4))">cyb3ritic</text>
+
+  <!-- Subtitle -->
+  <text x="82" y="340" font-family="'Courier New', monospace" font-size="32" fill="#FFFFFF" opacity="0.9">
+    Samip Aanand Shah
+  </text>
+
+  <!-- Role -->
+  <text x="82" y="390" font-family="'Courier New', monospace" font-size="24" fill="#1EAEDB">
+    Ethical Hacker &amp; Security Researcher
+  </text>
+
+  <!-- Separator line -->
+  <rect x="82" y="420" width="400" height="2" fill="url(#accent)" opacity="0.5"/>
+
+  <!-- Tags -->
+  <text x="82" y="470" font-family="'Courier New', monospace" font-size="18" fill="#8B5CF6">
+    Penetration Testing  |  Vulnerability Research  |  CTF  |  Bug Bounty
+  </text>
+
+  <!-- URL at bottom -->
+  <text x="82" y="570" font-family="'Courier New', monospace" font-size="22" fill="#00FF41" opacity="0.8">
+    samipshah.com.np
+  </text>
+
+  <!-- Bottom accent line -->
+  <rect x="0" y="626" width="1200" height="4" fill="url(#accent)"/>
+</svg>

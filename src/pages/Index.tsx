@@ -92,7 +92,28 @@ const Index = () => {
       <Helmet>
         <title>cyb3ritic | Ethical Hacker & Security Researcher</title>
         <meta name="description" content="Cybersecurity portfolio of cyb3ritic (Samip Aanand Shah), an ethical hacker specializing in penetration testing, vulnerability research, and security analysis." />
+        <meta name="keywords" content="cybersecurity, ethical hacking, penetration testing, vulnerability research, cyb3ritic, Samip Aanand Shah, bug bounty, security researcher, CTF, offensive security" />
         <link rel="canonical" href={`https://samipshah.com.np${location.pathname}`} />
+
+        {/* Open Graph */}
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://samipshah.com.np" />
+        <meta property="og:title" content="cyb3ritic | Ethical Hacker & Security Researcher" />
+        <meta property="og:description" content="Cybersecurity portfolio of Samip Aanand Shah (cyb3ritic) — penetration testing, vulnerability research, CTF competitions, and ethical hacking expertise." />
+        <meta property="og:image" content="https://samipshah.com.np/og-image.png" />
+        <meta property="og:image:alt" content="cyb3ritic — Samip Aanand Shah, Ethical Hacker & Security Researcher" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:site_name" content="cyb3ritic" />
+
+        {/* Twitter / X */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@cyb3ritic" />
+        <meta name="twitter:title" content="cyb3ritic | Ethical Hacker & Security Researcher" />
+        <meta name="twitter:description" content="Cybersecurity portfolio of Samip Aanand Shah (cyb3ritic) — penetration testing, vulnerability research, CTF competitions, and ethical hacking expertise." />
+        <meta name="twitter:image" content="https://samipshah.com.np/og-image.png" />
+        <meta name="twitter:image:alt" content="cyb3ritic — Samip Aanand Shah, Ethical Hacker & Security Researcher" />
       </Helmet>
 
       {isLoading ? (
