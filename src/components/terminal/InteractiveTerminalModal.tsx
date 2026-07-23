@@ -5,6 +5,7 @@ import { blogPosts } from "@/data/blogs";
 import { certifications } from "@/data/certifications";
 import { toolsAndFrameworks, languagesAndTech, securityExpertise } from "@/data/skills";
 import { achievements } from "@/data/achievements";
+import { getRandomTerminalBanner } from "@/components/AsciiArt";
 
 interface InteractiveTerminalModalProps {
   isOpen: boolean;
@@ -44,27 +45,28 @@ export const InteractiveTerminalModal: React.FC<InteractiveTerminalModalProps> =
 
   if (!isOpen) return null;
 
+  /** Builds a banner output node using a freshly-picked random ASCII art */
+  const buildBannerOutput = (): React.ReactNode => (
+    <div className="space-y-2 text-xs md:text-sm">
+      <pre className="text-cyber-green font-mono leading-none overflow-x-auto">
+        {getRandomTerminalBanner()}
+      </pre>
+      <p className="text-cyber-blue font-bold">
+        Interactive Security Shell v2.5 [cyb3ritic OS]
+      </p>
+      <p className="text-gray-400">
+        Type <span className="text-cyber-green font-bold">"help"</span> to view all available commands or{" "}
+        <span className="text-cyber-purple font-bold font-mono">"cv"</span> to download resume.
+      </p>
+    </div>
+  );
+
+  /** Shows the initial welcome banner — replaces history on first open */
   const showWelcomeBanner = () => {
     const welcomeOutput: CommandOutput = {
       id: Date.now(),
-      command: "banner",
-      output: (
-        <div className="space-y-2 text-xs md:text-sm">
-          <pre className="text-cyber-green font-mono leading-none">
-{`   ____ _   _ _____ _____  _ _____ _____ ____ 
-  / ___| | | |___ /|___ / | |_   _|_   _/ ___|
- | |   | |_| | |_ \\  |_ \\ | | | |   | | | |   
- | |___|  _  |___) |___) || | | |   | | | |___
-  \\____|_| |_|____/|____/ |_| |_|   |_|  \\____|`}
-          </pre>
-          <p className="text-cyber-blue font-bold">
-            Interactive Security Shell v2.5 [cyb3ritic OS]
-          </p>
-          <p className="text-gray-400">
-            Type <span className="text-cyber-green font-bold">"help"</span> to view all available commands or <span className="text-cyber-purple font-bold font-mono">"cv"</span> to download resume.
-          </p>
-        </div>
-      ),
+      command: "",
+      output: buildBannerOutput(),
     };
     setHistory([welcomeOutput]);
   };
@@ -215,8 +217,9 @@ export const InteractiveTerminalModal: React.FC<InteractiveTerminalModalProps> =
         break;
 
       case "banner":
-        showWelcomeBanner();
-        return;
+        // Append a fresh random banner to history each time
+        responseNode = buildBannerOutput();
+        break;
 
       case "clear":
         setHistory([]);
