@@ -48,7 +48,7 @@ export const InteractiveTerminalModal: React.FC<InteractiveTerminalModalProps> =
   /** Builds a banner output node using a freshly-picked random ASCII art */
   const buildBannerOutput = (): React.ReactNode => (
     <div className="space-y-2 text-xs md:text-sm">
-      <pre className="text-cyber-green font-mono leading-none overflow-x-auto">
+      <pre className="text-cyber-green font-mono leading-none overflow-x-auto max-w-full text-[0.4rem] sm:text-[0.55rem] md:text-xs lg:text-sm">
         {getRandomTerminalBanner()}
       </pre>
       <p className="text-cyber-blue font-bold">
@@ -289,18 +289,19 @@ export const InteractiveTerminalModal: React.FC<InteractiveTerminalModalProps> =
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-md animate-fade-in">
       <div
         className={`w-full bg-cyber-black border-2 border-cyber-green/50 rounded-lg shadow-2xl overflow-hidden flex flex-col transition-all duration-300 ${
-          isMaximized ? "h-[96vh] max-w-[98vw]" : "h-[80vh] max-w-4xl"
+          isMaximized ? "h-[96dvh] max-w-[98vw]" : "h-[85dvh] sm:h-[80vh] max-w-4xl"
         }`}
       >
         {/* Terminal Header Bar */}
         <div className="bg-cyber-dark px-4 py-2 border-b border-cyber-green/30 flex justify-between items-center select-none">
-          <div className="flex items-center space-x-2">
-            <TerminalIcon size={18} className="text-cyber-green" />
-            <span className="font-mono text-xs md:text-sm font-bold text-gray-200">
-              cyb3ritic@security-shell:~
+          <div className="flex items-center space-x-2 min-w-0">
+            <TerminalIcon size={18} className="text-cyber-green flex-shrink-0" />
+            <span className="font-mono text-xs md:text-sm font-bold text-gray-200 truncate">
+              <span className="sm:hidden">cyb3ritic@~</span>
+              <span className="hidden sm:inline">cyb3ritic@security-shell:~</span>
             </span>
           </div>
 
@@ -324,7 +325,7 @@ export const InteractiveTerminalModal: React.FC<InteractiveTerminalModalProps> =
 
         {/* Terminal Output Body */}
         <div
-          className="flex-1 p-4 overflow-y-auto font-mono text-sm space-y-4 bg-black/90 scrollbar-thin scrollbar-thumb-cyber-green/30"
+          className="flex-1 p-2 sm:p-4 overflow-y-auto overflow-x-hidden font-mono text-sm space-y-4 bg-black/90 scrollbar-thin scrollbar-thumb-cyber-green/30"
           onClick={() => inputRef.current?.focus()}
         >
           {history.map((item) => (
@@ -341,14 +342,17 @@ export const InteractiveTerminalModal: React.FC<InteractiveTerminalModalProps> =
 
           {/* Active Input Line */}
           <div className="flex items-center text-cyber-green font-bold pt-2">
-            <span className="text-cyber-blue mr-2">cyb3ritic$&gt;</span>
+            <span className="text-cyber-blue mr-2 text-xs sm:text-sm">
+              <span className="sm:hidden">&gt;</span>
+              <span className="hidden sm:inline">cyb3ritic$&gt;</span>
+            </span>
             <input
               ref={inputRef}
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              className="flex-1 bg-transparent text-cyber-green focus:outline-none font-mono"
+              className="flex-1 bg-transparent text-cyber-green focus:outline-none font-mono text-xs sm:text-sm"
               placeholder="type 'help'..."
               autoFocus
             />
@@ -363,17 +367,30 @@ export const InteractiveTerminalModal: React.FC<InteractiveTerminalModalProps> =
         </div>
 
         {/* Quick Command Suggestions Footer */}
-        <div className="bg-cyber-dark px-4 py-2 border-t border-cyber-green/20 flex flex-wrap gap-2 text-xs font-mono">
-          <span className="text-gray-400 self-center">Quick Cmds:</span>
-          {["help", "whoami", "skills", "projects", "achievements", "cv", "clear"].map((cmd) => (
-            <button
-              key={cmd}
-              onClick={() => handleCommand(cmd)}
-              className="px-2 py-0.5 rounded bg-cyber-black border border-cyber-green/30 text-cyber-green hover:bg-cyber-green hover:text-cyber-black transition-colors"
-            >
-              {cmd}
-            </button>
-          ))}
+        <div className="bg-cyber-dark px-2 sm:px-4 py-1.5 sm:py-2 border-t border-cyber-green/20 overflow-x-auto scrollbar-none">
+          <div className="flex items-center gap-1.5 sm:gap-2 text-[0.65rem] sm:text-xs font-mono min-w-max">
+            <span className="text-gray-400">Quick Cmds:</span>
+            {["help", "whoami", "skills", "projects", "cv"].map((cmd) => (
+              <button
+                key={cmd}
+                onClick={() => handleCommand(cmd)}
+                className="px-1.5 sm:px-2 py-0.5 rounded bg-cyber-black border border-cyber-green/30 text-cyber-green hover:bg-cyber-green hover:text-cyber-black transition-colors whitespace-nowrap"
+              >
+                {cmd}
+              </button>
+            ))}
+            <span className="hidden sm:inline-flex gap-1.5 sm:gap-2">
+              {["achievements", "clear"].map((cmd) => (
+                <button
+                  key={cmd}
+                  onClick={() => handleCommand(cmd)}
+                  className="px-1.5 sm:px-2 py-0.5 rounded bg-cyber-black border border-cyber-green/30 text-cyber-green hover:bg-cyber-green hover:text-cyber-black transition-colors whitespace-nowrap"
+                >
+                  {cmd}
+                </button>
+              ))}
+            </span>
+          </div>
         </div>
       </div>
     </div>
