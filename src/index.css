@@ -2,32 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Hack';
-  src: url('https://fonts.cdnfonts.com/s/29385/Hack-Regular.woff2') format('woff2'),
-       url('https://fonts.cdnfonts.com/s/29385/Hack-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'Hack';
-  src: url('https://fonts.cdnfonts.com/s/29385/Hack-Bold.woff2') format('woff2'),
-       url('https://fonts.cdnfonts.com/s/29385/Hack-Bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Hack';
-  src: url('https://fonts.cdnfonts.com/s/29385/Hack-Italic.woff2') format('woff2'),
-       url('https://fonts.cdnfonts.com/s/29385/Hack-Italic.woff') format('woff');
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
 
 @layer base {
   :root {
