@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { cn } from "@/lib/utils";
 import { BugIcon, TrophyIcon, DollarSignIcon } from "lucide-react";
+import { useTilt } from "@/hooks/useTilt";
 
 interface BountyCardProps {
   company: string;
@@ -19,32 +20,7 @@ const BountyCard: React.FC<BountyCardProps> = ({
   date,
   className,
 }) => {
-  const [tiltStyle, setTiltStyle] = useState({ transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)" });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isHovered) return;
-    
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = (y - centerY) / 25;
-    const rotateY = (centerX - x) / 25;
-    
-    setTiltStyle({
-      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-    });
-  };
-
-  const resetTilt = () => {
-    setIsHovered(false);
-    setTiltStyle({ transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)" });
-  };
+  const { tiltStyle, isHovered, handlers } = useTilt({ maxTilt: 25 });
 
   const getSeverityColor = () => {
     switch (severity) {
@@ -71,10 +47,7 @@ const BountyCard: React.FC<BountyCardProps> = ({
         className
       )}
       style={tiltStyle}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={resetTilt}
-      onBlur={resetTilt}
+      {...handlers}
     >
       <div className="flex justify-between items-start">
         <h3 className="text-xl font-bold text-cyber-purple">{company}</h3>

@@ -9,6 +9,7 @@ interface LayoutProps {
   children: React.ReactNode;
   activeSection: string;
   onNavClick: (section: string) => void;
+  onOpenTerminal?: () => void;
   showEasterEgg: boolean;
   setShowEasterEgg: (show: boolean) => void;
 }
@@ -17,16 +18,17 @@ const Layout: React.FC<LayoutProps> = ({
   children, 
   activeSection, 
   onNavClick,
+  onOpenTerminal,
   showEasterEgg,
   setShowEasterEgg
 }) => {
   return (
     <div className="relative overflow-hidden min-h-screen">
-      {/* Matrix rain in the background with higher z-index than before */}
+      {/* Matrix rain background */}
       <MatrixRain density={15} speed={15} />
       <CyberScroll />
       
-      <NavBar onNavClick={onNavClick} activeSection={activeSection} />
+      <NavBar onNavClick={onNavClick} onOpenTerminal={onOpenTerminal} activeSection={activeSection} />
       
       <main className="relative z-10">
         {children}

@@ -9,9 +9,9 @@ import AsciiArt, { ASCII_ART } from "./AsciiArt";
 import { useToast } from "@/hooks/use-toast";
 import emailjs from "emailjs-com";
 
-const SERVICE_ID = "service_62bswkk";
-const TEMPLATE_ID = "template_taab8ah";
-const PUBLIC_KEY = "JIS1fPtvdAXDmL7OZ";
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -117,7 +117,7 @@ const ContactSection = () => {
                 <CardTitle className="text-xl text-cyber-purple">Send a Secure Message</CardTitle>
               </CardHeader>
               <CardContent>
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4" id="contact-form" autoComplete="off">
+                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4" id="contact-form">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm mb-1 text-gray-300">Name</label>
@@ -135,7 +135,7 @@ const ContactSection = () => {
                       <Input
                         id="email"
                         name="email"
-                        type="text"
+                        type="email"
                         value={form.email}
                         onChange={handleChange}
                         placeholder="your@email.com"
@@ -175,18 +175,18 @@ const ContactSection = () => {
               </CardContent>
             </Card>
             <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="cyber-card card-purple border-cyber-purple/20 text-center p-6">
+              <a href="mailto:cy3ritic@gmail.com" className="cyber-card card-purple border-cyber-purple/20 text-center p-6 hover:scale-[1.02] transition-transform cursor-pointer block">
                 <h3 className="text-cyber-purple text-lg mb-2">Email</h3>
                 <p className="text-gray-300">cy3ritic@gmail.com</p>
-              </div>
-              <div className="cyber-card card-blue border-cyber-blue/20 text-center p-6">
+              </a>
+              <a href="https://github.com/cyb3ritic" target="_blank" rel="noopener noreferrer" className="cyber-card card-blue border-cyber-blue/20 text-center p-6 hover:scale-[1.02] transition-transform cursor-pointer block">
                 <h3 className="text-cyber-blue text-lg mb-2">Github</h3>
                 <p className="text-gray-300">@cyb3ritic</p>
-              </div>
-              <div className="cyber-card card-green border-cyber-green/20 text-center p-6">
+              </a>
+              <a href="https://linkedin.com/in/cyb3ritic" target="_blank" rel="noopener noreferrer" className="cyber-card card-green border-cyber-green/20 text-center p-6 hover:scale-[1.02] transition-transform cursor-pointer block">
                 <h3 className="text-cyber-green text-lg mb-2">Linkedin</h3>
                 <p className="text-gray-300">@cyb3ritic</p>
-              </div>
+              </a>
             </div>
           </AnimatedSection>
         </div>

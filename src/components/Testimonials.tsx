@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Users, Quote, Star } from "lucide-react";
 import { useInView } from "react-intersection-observer";
+import { useTilt } from "@/hooks/useTilt";
 
 const testimonials = [
   {
@@ -19,7 +20,7 @@ const testimonials = [
     name: "Priya Sharma",
     role: "Pentester, Freelance",
     text: "I learned so much from their mentorship and open source tools. Always approachable, always innovating.",
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+    avatar: "https://ui-avatars.com/api/?name=Priya+Sharma&background=00FF41&color=0D0D0D&bold=true",
   },
 ];
 
@@ -32,10 +33,7 @@ interface TestimonialCardProps {
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, text, avatar, delay }) => {
-  const [tiltStyle, setTiltStyle] = useState({ 
-    transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)" 
-  });
-  const [isHovered, setIsHovered] = useState(false);
+  const { tiltStyle, isHovered, handlers } = useTilt({ maxTilt: 20, scale: 1.02 });
   const [isVisible, setIsVisible] = useState(false);
   
   const { ref, inView } = useInView({
@@ -53,32 +51,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, text, ava
     }
   }, [inView, delay]);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isHovered) return;
-    
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = (y - centerY) / 20;
-    const rotateY = (centerX - x) / 20;
-    
-    setTiltStyle({
-      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`,
-    });
-  };
-
-  const resetTilt = () => {
-    setIsHovered(false);
-    setTiltStyle({ 
-      transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)" 
-    });
-  };
-
   return (
     <div 
       ref={ref}
@@ -90,9 +62,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, text, ava
         transition: `opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28)`,
         willChange: 'transform',
       }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={resetTilt}
+      {...handlers}
     >
       <img 
         src={avatar} 

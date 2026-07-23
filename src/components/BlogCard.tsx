@@ -1,10 +1,11 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { cn } from "@/lib/utils";
 import CyberButton from "./CyberButton";
 import { ArrowRightIcon, FileTextIcon } from "lucide-react";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { useTilt } from "@/hooks/useTilt";
 
 interface BlogCardProps {
   title: string;
@@ -35,8 +36,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
   imageUrl,
   imageAlt = "Blog post thumbnail",
 }) => {
-  const [tiltStyle, setTiltStyle] = useState({ transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)" });
-  const [isHovered, setIsHovered] = useState(false);
+  const { tiltStyle, isHovered, handlers } = useTilt({ maxTilt: 25 });
 
   const variantStyles = {
     green: "card-green border-cyber-green/20 hover:border-cyber-green/50",
@@ -50,30 +50,6 @@ const BlogCard: React.FC<BlogCardProps> = ({
     purple: "text-cyber-purple",
   };
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!isHovered) return;
-    
-    const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = (y - centerY) / 25;
-    const rotateY = (centerX - x) / 25;
-    
-    setTiltStyle({
-      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-    });
-  };
-
-  const resetTilt = () => {
-    setIsHovered(false);
-    setTiltStyle({ transform: "perspective(1000px) rotateX(0deg) rotateY(0deg)" });
-  };
-
   return (
     <div
       className={cn(
@@ -83,10 +59,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
         className
       )}
       style={tiltStyle}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={resetTilt}
-      onBlur={resetTilt}
+      {...handlers}
     >
       {imageUrl && (
         <div className="mb-4 overflow-hidden rounded-sm h-48 relative">

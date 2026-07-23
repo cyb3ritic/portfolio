@@ -1,30 +1,31 @@
-
-import React, { useState, useEffect, Suspense, lazy } from "react";
+import React, { useState, useEffect, Suspense, lazy, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Layout from "@/components/Layout";
-import LoadingOverlay from "@/components/home/LoadingOverlay";
+import LoadingOverlay, { hasSeenIntro } from "@/components/home/LoadingOverlay";
 import IntroSection from "@/components/home/IntroSection";
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import BlogSection from "@/components/BlogSection";
+import AchievementsSection from "@/components/AchievementsSection";
+import InteractiveTerminalModal from "@/components/terminal/InteractiveTerminalModal";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import initKonamiCode from "@/utils/konamiCode";
 
-// Lazy load heavier components for better initial load time
 const SkillsSection = lazy(() => import("@/components/SkillsSection"));
 const ProjectsSection = lazy(() => import("@/components/ProjectsSection"));
 const CertificationsSection = lazy(() => import("@/components/CertificationsSection"));
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 
 const Index = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => !hasSeenIntro());
   const [showEasterEgg, setShowEasterEgg] = useState(false);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const location = useLocation();
 
-  const sectionIds = ["home", "about", "skills", "projects", "blog", "certifications", "contact"];
+  const sectionIds = ["home", "about", "skills", "projects", "achievements", "blog", "certifications", "contact"];
   const activeSection = useScrollSpy(sectionIds);
 
-  // Handle navigation from URL hash
   useEffect(() => {
     const hash = location.hash.replace("#", "");
     if (hash) {
@@ -37,40 +38,53 @@ const Index = () => {
     }
   }, [location]);
 
-  // Handle scroll to section
+  // Keyboard shortcut listener for terminal modal (Backtick key ` or Ctrl+Shift+T)
+  useEffect(() => {
+    const handleGlobalKeyDown = (e: KeyboardEvent) => {
+      if (
+        (e.key === "`" && !["INPUT", "TEXTAREA"].includes((e.target as HTMLElement)?.tagName)) ||
+        (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "t")
+      ) {
+        e.preventDefault();
+        setIsTerminalOpen((prev) => !prev);
+      }
+    };
+
+    window.addEventListener("keydown", handleGlobalKeyDown);
+    return () => window.removeEventListener("keydown", handleGlobalKeyDown);
+  }, []);
+
   const handleNavClick = (section: string) => {
     const element = document.getElementById(section);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      // Update URL hash without page reload
       window.history.pushState(null, "", `#${section}`);
     }
   };
 
-  // Handle intro completion
-  const handleIntroComplete = () => {
+  const handleIntroComplete = useCallback(() => {
     setIsLoading(false);
-  };
+  }, []);
 
-  // Handle konami code easter egg
   useEffect(() => {
-    const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-    let konamiIndex = 0;
+    if (!isLoading) return;
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === konamiCode[konamiIndex]) {
-        konamiIndex++;
-        if (konamiIndex === konamiCode.length) {
-          setShowEasterEgg(true);
-          konamiIndex = 0;
-        }
-      } else {
-        konamiIndex = 0;
+      if (e.key === "Escape") {
+        try {
+          localStorage.setItem("portfolio_intro_seen", "true");
+        } catch { /* ignore */ }
+        setIsLoading(false);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isLoading]);
+
+  useEffect(() => {
+    const cleanup = initKonamiCode(() => setShowEasterEgg(true));
+    return cleanup;
   }, []);
 
   return (
@@ -84,24 +98,46 @@ const Index = () => {
       {isLoading ? (
         <LoadingOverlay onComplete={handleIntroComplete} />
       ) : (
-        <Layout 
-          activeSection={activeSection} 
+        <Layout
+          activeSection={activeSection}
           onNavClick={handleNavClick}
+          onOpenTerminal={() => setIsTerminalOpen(true)}
           showEasterEgg={showEasterEgg}
           setShowEasterEgg={setShowEasterEgg}
         >
-          <IntroSection onComplete={() => {}} onNavClick={handleNavClick} />
+          <a
+            href="#about"
+            className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-cyber-green focus:text-cyber-black focus:px-4 focus:py-2 focus:rounded focus:font-bold focus:outline-none"
+            onClick={(e) => {
+              e.preventDefault();
+              handleNavClick("about");
+            }}
+          >
+            Skip to content
+          </a>
+
+          <IntroSection
+            onComplete={() => {}}
+            onNavClick={handleNavClick}
+            onOpenTerminal={() => setIsTerminalOpen(true)}
+          />
           <AboutSection onNavClick={handleNavClick} />
-          
+
           <Suspense fallback={<div className="min-h-screen"></div>}>
             <SkillsSection />
             <ProjectsSection />
+            <AchievementsSection />
             <BlogSection />
             <CertificationsSection />
             <Testimonials />
           </Suspense>
-          
+
           <ContactSection />
+
+          <InteractiveTerminalModal
+            isOpen={isTerminalOpen}
+            onClose={() => setIsTerminalOpen(false)}
+          />
         </Layout>
       )}
     </>

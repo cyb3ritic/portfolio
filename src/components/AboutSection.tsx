@@ -48,9 +48,19 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onNavClick }) => {
                       ahead of evolving threats.
                     </p>
                     
-                    <div className="pt-4">
+                    <div className="pt-4 flex flex-wrap gap-3">
                       <CyberButton onClick={() => onNavClick("skills")}>
                         Explore My Skills
+                      </CyberButton>
+                      <CyberButton variant="blue" onClick={() => {
+                        const link = document.createElement("a");
+                        link.href = "/resume.pdf";
+                        link.download = "Samip_Shah_Resume.pdf";
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                      }}>
+                        Download CV
                       </CyberButton>
                     </div>
                   </div>

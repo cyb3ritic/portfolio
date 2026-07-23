@@ -1,18 +1,19 @@
-
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import CyberButton from "./CyberButton";
-import { Menu } from "lucide-react";
+import { Menu, Terminal as TerminalIcon } from "lucide-react";
 import { ThemeToggle } from "./ThemeProvider";
 
 interface NavBarProps {
   onNavClick: (section: string) => void;
+  onOpenTerminal?: () => void;
   className?: string;
   activeSection?: string;
 }
 
 const NavBar: React.FC<NavBarProps> = ({ 
-  onNavClick, 
+  onNavClick,
+  onOpenTerminal, 
   className,
   activeSection = ""
 }) => {
@@ -25,6 +26,7 @@ const NavBar: React.FC<NavBarProps> = ({
     { label: "About", id: "about" },
     { label: "Skills", id: "skills" },
     { label: "Projects", id: "projects" },
+    { label: "Achievements", id: "achievements" },
     { label: "Blog", id: "blog" },
     { label: "Certifications", id: "certifications" },
     { label: "Contact", id: "contact" },
@@ -66,11 +68,22 @@ const NavBar: React.FC<NavBarProps> = ({
       )}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="flex items-center">
+        <div className="flex items-center space-x-2">
           <span className="text-cyber-green font-mono mr-1 dark:text-cyber-green light:text-cyber-dark">&gt;</span>
           <span className="font-bold text-lg text-white dark:text-white light:text-cyber-dark">
             <span className="cyber-text-gradient"><a href="#">cyb3ritic</a></span>
           </span>
+
+          {onOpenTerminal && (
+            <button
+              onClick={onOpenTerminal}
+              className="ml-3 px-2 py-0.5 rounded border border-cyber-green/40 bg-cyber-green/10 text-cyber-green hover:bg-cyber-green hover:text-cyber-black text-xs font-mono flex items-center gap-1 transition-all"
+              title="Open Interactive Terminal Shell (`)"
+            >
+              <TerminalIcon size={12} />
+              <span>CLI</span>
+            </button>
+          )}
         </div>
 
         {/* Desktop Navigation */}
@@ -99,7 +112,18 @@ const NavBar: React.FC<NavBarProps> = ({
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center">
+        <div className="md:hidden flex items-center space-x-2">
+          {onOpenTerminal && (
+            <CyberButton
+              variant="purple"
+              onClick={onOpenTerminal}
+              aria-label="Open CLI Terminal"
+              className="p-2 text-xs font-mono"
+            >
+              <TerminalIcon size={16} />
+            </CyberButton>
+          )}
+
           <CyberButton
             variant="ghost"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -124,7 +148,19 @@ const NavBar: React.FC<NavBarProps> = ({
                 {item.label}
               </CyberButton>
             ))}
-            <div className="my-2 flex justify-end">
+            <div className="my-2 flex justify-between items-center pt-2 border-t border-cyber-green/20">
+              {onOpenTerminal && (
+                <button
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    onOpenTerminal();
+                  }}
+                  className="px-3 py-1 rounded bg-cyber-purple/20 text-cyber-purple border border-cyber-purple/40 text-xs font-mono flex items-center gap-1.5"
+                >
+                  <TerminalIcon size={14} />
+                  <span>Launch Interactive CLI</span>
+                </button>
+              )}
               <ThemeToggle />
             </div>
           </div>

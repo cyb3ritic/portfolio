@@ -6,60 +6,7 @@ import ProjectsFilter from "./projects/ProjectsFilter";
 import ProjectsList from "./projects/ProjectsList";
 import ProjectModal from "./projects/ProjectModal";
 
-interface Project {
-  title: string;
-  description: string;
-  tags: string[];
-  github: string;
-  variant: "green" | "blue" | "purple";
-  image: string;
-  demo?: string;
-}
-
-const projects: Project[] = [
-  {
-    title: "PentestPal",
-    description: "A modular Python CLI framework that streamlines penetration testing with automated tools, tab-completion, and detailed reporting for security professionals.",
-    tags: ["Python", "Web Security", "OWASP"],
-    github: "https://github.com/cyb3ritic/ComputerSecurityProject",
-    variant: "green" as const,
-    image: "https://raw.githubusercontent.com/cyb3ritic/images/refs/heads/master/banners/pentestpal_banner.png"
-  },
-  {
-    title: "WebSleuth",
-    description: "A modular bash based website reconnaissance tool that automates intelligence gathering and analysis for ethical hackers and security researchers.",
-    tags: ["Bash", "Web Security", "OWASP", "Reconnaissance"],
-    github: "https://github.com/cyb3ritic/websleuth",
-    // demo: "https://demo.example.com",
-    variant: "blue" as const,
-    image: "https://raw.githubusercontent.com/cyb3ritic/images/refs/heads/master/banners/websleuth_banner.png"
-  },
-  {
-    title: "PySniffer-X",
-    description: "A professional-grade packet sniffer offering live capture, deep inspection, real-time analysis, and Wireshark integration for network analysis and cybersecurity education.",
-    tags: ["Python", "Packet Sniffer", "Network Analysis", "DPI", "Wireshark"],
-    github: "https://github.com/username/shadowc2",
-    variant: "purple" as const,
-    image: "https://raw.githubusercontent.com/cyb3ritic/images/refs/heads/master/banners/pysniffer_banner.png"
-  },
-  // {
-  //   title: "CloudHunter",
-  //   description: "Tool for auditing cloud misconfigurations across AWS, Azure, and GCP, identifying privilege escalation paths and data exposure risks.",
-  //   tags: ["Python", "Cloud Security", "IAM", "S3"],
-  //   github: "https://github.com/username/cloudhunter",
-  //   demo: "https://demo.example.com",
-  //   variant: "green" as const,
-  //   image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80"
-  // },
-  // {
-  //   title: "KernelExploit",
-  //   description: "Research on kernel exploitation techniques with ready-to-use PoC for common Linux kernel vulnerabilities.",
-  //   tags: ["C", "Kernel", "Exploitation", "Linux"],
-  //   github: "https://github.com/username/kernelexploit",
-  //   variant: "purple" as const,
-  //   image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=400&q=80"
-  // }
-];
+import { projects, Project } from "@/data/projects";
 
 interface ProjectsSectionProps {
   onPreview?: () => void;
