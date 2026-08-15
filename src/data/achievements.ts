@@ -33,17 +33,17 @@ export const ctfRankings = [
 ];
 
 export const achievements: Achievement[] = [
-  {
-    id: "htb-top-1000",
-    title: "Hack The Box - Top 1000 Global Ranking",
-    category: "CTF",
-    platformOrOrg: "Hack The Box",
-    date: "2024",
-    metric: "Top 1000",
-    description: "Ranked among the top 1000 security researchers globally on Hack The Box, demonstrating consistent problem-solving skills across web exploitation, kernel privilege escalation, and active directory labs.",
-    link: "https://app.hackthebox.com",
-    variant: "green"
-  },
+  // {
+  //   id: "htb-top-1000",
+  //   title: "Hack The Box - Top 1000 Global Ranking",
+  //   category: "CTF",
+  //   platformOrOrg: "Hack The Box",
+  //   date: "2024",
+  //   metric: "Top 1000",
+  //   description: "Ranked among the top 1000 security researchers globally on Hack The Box, demonstrating consistent problem-solving skills across web exploitation, kernel privilege escalation, and active directory labs.",
+  //   link: "https://app.hackthebox.com",
+  //   variant: "green"
+  // },
   {
     id: "pentestpal-release",
     title: "PentestPal Security Toolkit Release",
@@ -53,19 +53,19 @@ export const achievements: Achievement[] = [
     metric: "100% Open Source",
     description: "Designed and released PentestPal, a modular Python penetration testing CLI framework supporting automated OWASP Top 10 vulnerability checks and reporting.",
     link: "https://github.com/cyb3ritic/ComputerSecurityProject",
-    variant: "blue"
-  },
-  {
-    id: "vapt-cert",
-    title: "Vulnerability Assessment & Pen Testing Certification",
-    category: "Research",
-    platformOrOrg: "Udemy",
-    date: "Feb 2025",
-    metric: "Certified",
-    description: "Validated hands-on expertise in network auditing, web application penetration testing methodology, and risk mitigation.",
-    link: "https://ude.my/UC-b5eabe86-f454-4e38-9164-0680c43fd229",
     variant: "purple"
   },
+  // {
+  //   id: "vapt-cert",
+  //   title: "Vulnerability Assessment & Pen Testing Certification",
+  //   category: "Research",
+  //   platformOrOrg: "Udemy",
+  //   date: "Feb 2025",
+  //   metric: "Certified",
+  //   description: "Validated hands-on expertise in network auditing, web application penetration testing methodology, and risk mitigation.",
+  //   link: "https://ude.my/UC-b5eabe86-f454-4e38-9164-0680c43fd229",
+  //   variant: "purple"
+  // },
   {
     id: "blog-research",
     title: "Technical Research & Machine Writeups",

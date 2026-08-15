@@ -20,7 +20,7 @@ const testimonials = [
     name: "Priya Sharma",
     role: "Pentester, Freelance",
     text: "I learned so much from their mentorship and open source tools. Always approachable, always innovating.",
-    avatar: "https://ui-avatars.com/api/?name=Priya+Sharma&background=00FF41&color=0D0D0D&bold=true",
+    avatar: "https://ui-avatars.com/api/?name=Priya+Sharma&background=8B5CF6&color=0D0D0D&bold=true",
   },
 ];
 
@@ -30,12 +30,35 @@ interface TestimonialCardProps {
   text: string;
   avatar: string;
   delay: number;
+  variant: "green" | "blue" | "purple";
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, text, avatar, delay }) => {
+const cardVariants = {
+  green: {
+    card: "card-green border-cyber-green/20 hover:border-cyber-green/50",
+    text: "text-cyber-green",
+    avatarBorder: "border-cyber-green",
+    shadow: "shadow-glow-green",
+  },
+  blue: {
+    card: "card-blue border-cyber-blue/20 hover:border-cyber-blue/50",
+    text: "text-cyber-blue",
+    avatarBorder: "border-cyber-blue",
+    shadow: "shadow-glow-blue",
+  },
+  purple: {
+    card: "card-purple border-cyber-purple/20 hover:border-cyber-purple/50",
+    text: "text-cyber-purple",
+    avatarBorder: "border-cyber-purple",
+    shadow: "shadow-glow-purple",
+  },
+};
+
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, text, avatar, delay, variant }) => {
   const { tiltStyle, isHovered, handlers } = useTilt({ maxTilt: 20, scale: 1.02 });
   const [isVisible, setIsVisible] = useState(false);
-  
+  const v = cardVariants[variant];
+
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -54,7 +77,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, text, ava
   return (
     <div 
       ref={ref}
-      className={`cyber-card card-green p-6 flex flex-col items-center text-center cyber-card-3d transition-all duration-300 ${
+      className={`cyber-card ${v.card} p-6 flex flex-col items-center text-center cyber-card-3d transition-all duration-300 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
       }`} 
       style={{
@@ -67,21 +90,21 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, text, ava
       <img 
         src={avatar} 
         alt={name} 
-        className={`w-14 h-14 rounded-full border-2 border-cyber-green mb-4 transition-all duration-300 ${
-          isHovered ? 'shadow-glow-green scale-110' : ''
+        className={`w-14 h-14 rounded-full border-2 ${v.avatarBorder} mb-4 transition-all duration-300 ${
+          isHovered ? `${v.shadow} scale-110` : ''
         }`}
         loading="lazy"
       />
       <p className="text-gray-200 italic mb-4 flex-1 relative px-2">
         <Quote 
-          className={`absolute left-0 -top-4 text-cyber-green opacity-40 transition-all ${
+          className={`absolute left-0 -top-4 ${v.text} opacity-40 transition-all ${
             isHovered ? 'animate-pulse scale-110' : ''
           }`} 
           size={18} 
         />
         "{text}"
       </p>
-      <div className={`text-sm font-bold mt-2 text-cyber-green transition-transform duration-300 ${
+      <div className={`text-sm font-bold mt-2 ${v.text} transition-transform duration-300 ${
         isHovered ? 'scale-105' : ''
       }`}>
         {name}
@@ -92,7 +115,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ name, role, text, ava
           <Star 
             key={i} 
             size={14} 
-            className={`text-cyber-green transition-all ${
+            className={`${v.text} transition-all ${
               isHovered ? 'animate-pulse scale-110' : 'opacity-80'
             }`} 
           />
@@ -121,6 +144,7 @@ export default function Testimonials() {
               text={t.text}
               avatar={t.avatar}
               delay={idx * 100}
+              variant={(["green", "blue", "purple"] as const)[idx % 3]}
             />
           ))}
         </div>

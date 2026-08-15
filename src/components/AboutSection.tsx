@@ -1,13 +1,23 @@
 
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { UserIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 import AnimatedSection from "./AnimatedSection";
 import CyberButton from "./CyberButton";
 import AsciiArt, { ASCII_ART } from "./AsciiArt";
 
+const HackerAvatar = lazy(() => import("./HackerAvatar"));
+
 interface AboutSectionProps {
   onNavClick: (section: string) => void;
 }
+
+const quickStats = [
+  { label: "HTB Top 1000", className: "border-cyber-green/30 text-cyber-green hover:bg-cyber-green/10" },
+  { label: "THM Top 1%", className: "border-cyber-blue/30 text-cyber-blue hover:bg-cyber-blue/10" },
+  { label: "PentestPal Creator", className: "border-cyber-purple/30 text-cyber-purple hover:bg-cyber-purple/10" },
+  { label: "Blog Maintainer", className: "border-cyber-green/30 text-cyber-green hover:bg-cyber-green/10" },
+];
 
 const AboutSection: React.FC<AboutSectionProps> = ({ onNavClick }) => {
   return (
@@ -16,106 +26,77 @@ const AboutSection: React.FC<AboutSectionProps> = ({ onNavClick }) => {
       className="py-20 relative bg-gradient-to-b from-cyber-dark/80 to-transparent"
     >
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-10 items-start">
-          <div className="flex-1">
-            <AsciiArt art={ASCII_ART.TERMINAL} className="mb-4" />
+        <div className="max-w-5xl mx-auto">
 
-            <AnimatedSection animation="fade-up">
-              <h2 className="text-3xl font-bold mb-8 flex items-center">
-                <UserIcon className="mr-2 text-cyber-green" size={24} />
-                <span className="cyber-text-gradient">About Me</span>
-              </h2>
+          <AnimatedSection animation="fade-up">
+            <h2 className="text-3xl font-bold mb-8 flex items-center">
+              <UserIcon className="mr-2 text-cyber-green" size={24} />
+              <span className="cyber-text-gradient">About Me</span>
+            </h2>
 
-              <div className="grid md:grid-cols-2 gap-8">
-                <AnimatedSection animation="fade-in" delay={200}>
-                  <div className="space-y-4">
-                    <p className="text-gray-300">
-                      As a dedicated cybersecurity enthusiast, I specialize in penetration testing, 
-                      vulnerability research, and security auditing. With a background in both offensive 
-                      and defensive security, I bring a comprehensive approach to identifying and mitigating 
-                      digital threats.
-                    </p>
-                    
-                    <p className="text-gray-300">
-                      My passion lies in uncovering complex vulnerabilities that others might miss, and responsibly 
-                      disclosing them to help organizations strengthen their security posture. I believe that 
-                      effective security requires both technical expertise and clear communication.
-                    </p>
-                    
-                    <p className="text-gray-300">
-                      When I'm not hacking (ethically, of course), I contribute to open source security tools 
-                      and mentor aspiring security professionals. I'm constantly learning and adapting to stay 
-                      ahead of evolving threats.
-                    </p>
-                    
-                    <div className="pt-4 flex flex-wrap gap-3">
-                      <CyberButton onClick={() => onNavClick("skills")}>
-                        Explore My Skills
-                      </CyberButton>
-                      <CyberButton variant="blue" onClick={() => {
-                        const link = document.createElement("a");
-                        link.href = "/resume.pdf";
-                        link.download = "Samip_Shah_Resume.pdf";
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                      }}>
-                        Download CV
-                      </CyberButton>
-                    </div>
+            <div className="grid md:grid-cols-[1.15fr_0.85fr] gap-10 md:items-center">
+              <AnimatedSection animation="fade-in" delay={200}>
+                <div className="space-y-4">
+                  <p className="text-gray-300">
+                    I'm <span className="text-cyber-green font-bold">cyb3ritic</span> — an ethical hacker who
+                    hunts vulnerabilities, builds offensive security tooling, and turns findings into fixes.
+                  </p>
+
+                  <p className="text-gray-300">
+                    Penetration testing, web exploitation, and CTFs. I break systems so they can't be broken.
+                  </p>
+
+                  <div className="pt-2 flex flex-wrap gap-2">
+                    {quickStats.map((chip) => (
+                      <button
+                        key={chip.label}
+                        type="button"
+                        onClick={() => onNavClick("achievements")}
+                        className={cn(
+                          "text-xs font-mono px-2.5 py-1 rounded border bg-cyber-black/50 transition-colors cursor-pointer",
+                          chip.className
+                        )}
+                      >
+                        {chip.label}
+                      </button>
+                    ))}
                   </div>
-                </AnimatedSection>
 
-                <AnimatedSection animation="slide-in" delay={400}>
-                  <div className="cyber-card card-green p-6 shadow-lg glow-green">
-                    <h3 className="text-xl font-bold mb-4 text-cyber-green">
-                      Security Philosophy
-                    </h3>
-                    
-                    <ul className="space-y-3">
-                      <li className="flex">
-                        <span className="text-cyber-green mr-2">&#9654;</span>
-                        <span>Thorough methodology over quick scanning</span>
-                      </li>
-                      <li className="flex">
-                        <span className="text-cyber-green mr-2">&#9654;</span>
-                        <span>Understanding systems, not just exploiting them</span>
-                      </li>
-                      <li className="flex">
-                        <span className="text-cyber-green mr-2">&#9654;</span>
-                        <span>Responsible disclosure and ethical practice</span>
-                      </li>
-                      <li className="flex">
-                        <span className="text-cyber-green mr-2">&#9654;</span>
-                        <span>Education and mentorship in security</span>
-                      </li>
-                      <li className="flex">
-                        <span className="text-cyber-green mr-2">&#9654;</span>
-                        <span>Continuous learning and adapting</span>
-                      </li>
-                    </ul>
-                    
-                    <div className="mt-6 p-3 border border-cyber-green/20 rounded bg-cyber-black font-mono text-sm">
-                      <div className="text-gray-400">// Security Mindset</div>
-                      <div className="text-cyber-green">
-                        function secureIt(system) {"{"}
-                        <br />
-                        &nbsp;&nbsp;return thinkLikeAnAttacker(system)
-                        <br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;.then(findVulnerabilities)
-                        <br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;.then(buildDefenses)
-                        <br />
-                        &nbsp;&nbsp;&nbsp;&nbsp;.then(validateSecurity);
-                        <br />
-                        {"}"}
-                      </div>
-                    </div>
+                  <div className="pt-4 flex flex-wrap gap-3">
+                    <CyberButton onClick={() => onNavClick("skills")}>
+                      Explore My Skills
+                    </CyberButton>
+                    <CyberButton variant="blue" onClick={() => {
+                      const link = document.createElement("a");
+                      link.href = "/resume.pdf";
+                      link.download = "Samip_Shah_Resume.pdf";
+                      document.body.appendChild(link);
+                      link.click();
+                      document.body.removeChild(link);
+                    }}>
+                      Download CV
+                    </CyberButton>
                   </div>
-                </AnimatedSection>
-              </div>
-            </AnimatedSection>
-          </div>
+                </div>
+              </AnimatedSection>
+
+              <AnimatedSection animation="slide-in" delay={400}>
+                <Suspense
+                  fallback={
+                    <div className="w-full max-w-[400px] mx-auto aspect-square rounded-sm border border-cyber-green/20 bg-cyber-black/40 animate-pulse" />
+                  }
+                >
+                  <HackerAvatar
+                    className="w-full max-w-[400px] mx-auto"
+                    style={{
+                      boxShadow:
+                        "0 0 45px rgba(57, 255, 138, 0.12), 0 0 90px rgba(57, 255, 138, 0.06)",
+                    }}
+                  />
+                </Suspense>
+              </AnimatedSection>
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>

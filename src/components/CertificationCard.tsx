@@ -10,8 +10,27 @@ interface CertificationCardProps {
   expiry?: string;
   credentialLink?: string;
   logo?: string;
+  variant?: "green" | "blue" | "purple";
   className?: string;
 }
+
+const variants = {
+  green: {
+    card: "card-green border-cyber-green/20 hover:border-cyber-green/50",
+    text: "text-cyber-green",
+    shadow: "shadow-cyber-green/20",
+  },
+  blue: {
+    card: "card-blue border-cyber-blue/20 hover:border-cyber-blue/50",
+    text: "text-cyber-blue",
+    shadow: "shadow-cyber-blue/20",
+  },
+  purple: {
+    card: "card-purple border-cyber-purple/20 hover:border-cyber-purple/50",
+    text: "text-cyber-purple",
+    shadow: "shadow-cyber-purple/20",
+  },
+};
 
 const CertificationCard: React.FC<CertificationCardProps> = ({
   title,
@@ -20,15 +39,18 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
   expiry,
   credentialLink,
   logo,
+  variant = "blue",
   className,
 }) => {
   const { tiltStyle, isHovered, handlers } = useTilt({ maxTilt: 25 });
+  const v = variants[variant];
 
   return (
     <div
       className={cn(
-        "cyber-card card-blue cyber-card-3d border-cyber-blue/20 hover:border-cyber-blue/50 transition-all duration-300",
-        isHovered && "shadow-xl shadow-cyber-blue/20",
+        "cyber-card cyber-card-3d transition-all duration-300",
+        v.card,
+        isHovered && `shadow-xl ${v.shadow}`,
         className
       )}
       style={tiltStyle}
@@ -37,36 +59,37 @@ const CertificationCard: React.FC<CertificationCardProps> = ({
       <div className={cn("flex items-start gap-4 transition-transform", isHovered && "scale-[1.02]")}>
         <div className="flex-shrink-0">
           {logo ? (
-            <img 
-              src={logo} 
+            <img
+              src={logo}
               alt={issuer}
               className="w-12 h-12 object-contain bg-cyber-dark p-1 rounded"
               loading="lazy"
             />
           ) : (
             <div className="w-12 h-12 bg-cyber-dark flex items-center justify-center rounded">
-              <Award className={cn("h-8 w-8 text-cyber-blue", isHovered && "animate-pulse")} />
+              <Award className={cn("h-8 w-8", v.text, isHovered && "animate-pulse")} />
             </div>
           )}
         </div>
 
         <div className="flex-grow">
-          <h3 className="text-xl font-bold text-cyber-blue mb-1">{title}</h3>
+          <h3 className={cn("text-xl font-bold mb-1", v.text)}>{title}</h3>
           <p className="text-gray-300">{issuer}</p>
-          
+
           <div className="flex flex-wrap items-center gap-x-4 mt-2 text-sm text-gray-400">
             <div className="flex items-center">
               <Calendar size={14} className="mr-1.5" />
               <span>{date}{expiry ? ` - ${expiry}` : ''}</span>
             </div>
-            
+
             {credentialLink && (
-              <a 
+              <a
                 href={credentialLink}
                 target="_blank"
-                rel="noopener noreferrer" 
+                rel="noopener noreferrer"
                 className={cn(
-                  "flex items-center text-cyber-blue hover:underline",
+                  "flex items-center hover:underline",
+                  v.text,
                   isHovered && "gap-2 transition-all"
                 )}
               >

@@ -32,6 +32,7 @@ const CertificationsSection = () => {
                   // expiry={cert.expiry}
                   credentialLink={cert.credentialLink}
                   logo={cert.logo}
+                  variant={cert.variant}
                 />
               ))}
             </div>

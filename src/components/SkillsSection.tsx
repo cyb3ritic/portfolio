@@ -2,6 +2,7 @@ import React from "react";
 import { Code, Shield, Terminal, Hammer } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import SkillBadge from "./SkillBadge";
+import SkillRadar from "./SkillRadar";
 import AsciiArt, { ASCII_ART } from "./AsciiArt";
 import { toolsAndFrameworks, languagesAndTech, securityExpertise } from "@/data/skills";
 
@@ -18,7 +19,9 @@ const SkillsSection = () => {
               <span className="cyber-text-gradient">Skillsets & Arsenal</span>
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-10">
+            {/* Two columns from lg (1024px) up; stacked top/bottom on mobile + tablet */}
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 lg:items-center">
+              {/* Left: all textual / badge content */}
               <AnimatedSection animation="fade-in" delay={200}>
                 <div className="mb-8">
                   <h3 className="text-xl font-bold mb-4 flex items-center text-cyber-blue">
@@ -43,10 +46,8 @@ const SkillsSection = () => {
                     ))}
                   </div>
                 </div>
-              </AnimatedSection>
 
-              <AnimatedSection animation="fade-in" delay={400}>
-                <div className="mb-8">
+                <div>
                   <h3 className="text-xl font-bold mb-4 flex items-center text-cyber-purple">
                     <Shield size={18} className="mr-2" />
                     Security Expertise
@@ -57,27 +58,12 @@ const SkillsSection = () => {
                     ))}
                   </div>
                 </div>
+              </AnimatedSection>
 
-                <div className="cyber-card card-purple p-6 border-cyber-purple/30">
-                  <h3 className="text-xl font-bold mb-3 text-cyber-purple">Certifications & Achievements Summary</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start">
-                      <span className="text-cyber-purple mr-2">▶</span>
-                      <span>Maintainer - <a href='https://blog.samipshah.com.np' target="_blank" rel="noopener noreferrer" className="underline hover:text-cyber-green">blog.samipshah.com.np</a> | Technical Writeups & Research</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-cyber-purple mr-2">▶</span>
-                      <span>Completed Web Application Penetration Testing (VAPT) professional course</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-cyber-purple mr-2">▶</span>
-                      <span>Top 1000 Global rank on HackTheBox platform</span>
-                    </li>
-                    <li className="flex items-start">
-                      <span className="text-cyber-purple mr-2">▶</span>
-                      <span>Creator of PentestPal & WebSleuth offensive security toolkits</span>
-                    </li>
-                  </ul>
+              {/* Right: radar chart, vertically centered against the left column's height */}
+              <AnimatedSection animation="fade-in" delay={400}>
+                <div className="w-full max-w-md mx-auto">
+                  <SkillRadar />
                 </div>
               </AnimatedSection>
             </div>
